@@ -1,0 +1,24 @@
+<div id="member-list">
+	<p>The following list of players in the guild is on the characters abow level 10.</p>
+	<input type="text" data-ng-model="txtNameSearch" placeholder="search..">
+	<table>
+		<thead>
+		<tr>
+			<td>Thumbnail</td>
+			<td>Name</td>
+			<td>Class</td>
+			<td>Race</td>
+			<td>Level</td>
+			<td>Guild Rank</td>
+		</tr>
+		</thead>
+		<tr data-ng-repeat="member in members | orderBy: 'guildRank' | filter:txtNameSearch">
+			<td><img src="{{ member.thumbnail }}" alt="thumbnail of character" class="character-thumbnail"></img></td>
+			<td><a href="#/about?server=Ravencrest&character={{ member.name }}">{{member.name}}</td>
+			<td>{{ member.class }}</td>
+			<td>{{ member.race }}</td>
+			<td>{{ member.level }}</td>
+			<td>{{ member.guildRank }}</td>
+		</tr>
+	</table>
+</div>
