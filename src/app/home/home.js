@@ -23,7 +23,10 @@ angular.module( 'intrepidApp.home', [
     $scope.members = data;
   }).
   error(function(data, status, headers, config) {
-    console.log("Error - " + status);
+    $http({method: 'GET', url: '../src/app/home/home.json'}).
+    success(function(data, status, headers, config) {
+      $scope.members = data;
+    });
   });
 })
 ;
