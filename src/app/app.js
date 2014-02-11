@@ -1,15 +1,17 @@
 angular.module( 'intrepidApp', [
   'templates-app',
   'templates-common',
-  'intrepidApp.home',
+  'intrepidApp.404',
   'intrepidApp.about',
+  'intrepidApp.home',
+  'intrepidApp.login',
   'intrepidApp.members',
   'ui.state',
   'ui.route'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/' );
+  $urlRouterProvider.otherwise( '/404' );
 })
 
 .run( function run () {
