@@ -7,7 +7,7 @@ angular.module( 'intrepidApp.login', [
     url: '/login',
     views: {
       "main": {
-        controller: 'MembersCtrl',
+        controller: 'loginCtrl',
         templateUrl: 'login/login.tpl.html'
       }
     },
@@ -15,7 +15,22 @@ angular.module( 'intrepidApp.login', [
   });
 })
 
-.controller( 'LoginCtrl', function HomeController( $scope ) {
-})
+.controller( 'loginCtrl', function HomeController( $scope, $http ) {
 
+
+  $scope.login = function() {
+    $formData = {};
+    
+    $http({
+      method: 'POST', 
+      url:    'api/login',
+      data:   $scope.formData
+    })
+      .success(function(data, status, headers, config) {
+        $scope.console = "success!";
+    });
+  };
+
+})
 ;
+

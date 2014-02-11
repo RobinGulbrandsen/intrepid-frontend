@@ -1,8 +1,11 @@
-<h2>Login Screen</h2>
+<h2>Login</h2>
 
-<form>
-	<input type="text" placeholder="Username...">
-	<input type="password" placeholder="Password...">
+<form data-ng-submit="login()">
+	<input type="text" placeholder="Username.." data-ng-model="formData.username">
+	<input type="password" placeholder="Password.." data-ng-model="formData.password">
 
-	<input type="submit">
+	<button type="submit">Login</button>
 </form>
+
+{{ formData }}
+{{ console }}
