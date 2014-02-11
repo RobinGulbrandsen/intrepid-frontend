@@ -6,6 +6,7 @@ angular.module( 'intrepidApp', [
   'intrepidApp.home',
   'intrepidApp.login',
   'intrepidApp.members',
+  'intrepidApp.register',
   'ui.state',
   'ui.route'
 ])
