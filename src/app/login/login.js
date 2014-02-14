@@ -27,7 +27,7 @@ angular.module( 'intrepidApp.login', [
       data:   $scope.formData
     })
       .success(function(data, status, headers, config) {
-        $scope.console = "success!";
+        $scope.console = data;
     });
   };
 

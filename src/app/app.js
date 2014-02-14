@@ -12,7 +12,7 @@ angular.module( 'intrepidApp', [
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/404' );
+  $urlRouterProvider.otherwise( '/' );
 })
 
 .run( function run () {
