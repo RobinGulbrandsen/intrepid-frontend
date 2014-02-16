@@ -37,13 +37,16 @@
 */
 @import '../app/home/home.less';
 
+@font-title-color: #F0B104;
+@font-title-span: #512E19;
+@font-color: #CEC9A0;
 @guild-name-color: #F0B104;
 @container-background: #1A0F09;
 @menu-border-color: #552B12;
 @navbar-height: 60px;
 @navbar-font-size: 20px;
 @navbar-font-color: #552B12;
-@page-width: 800px;
+@page-width: 70%;
 @page-height: 700px;
 
 body {
@@ -54,6 +57,24 @@ body {
 	background-repeat:no-repeat;
 	margin: 0px;
 	padding: 0px;
+
+	font-style: normal;
+	font-family: "Helvetica Neue", Arial, adelle-sans, sans-serif;
+	font-size: 1em;
+	line-height: 1.625em;
+}
+
+p {
+	color: @font-color;
+}
+
+h1, h2, h3, h4, h5, {
+	color: @font-title-color;
+
+	span {
+		color: @font-title-span;
+		font-size: 0.6em;
+	}
 }
 
 ul {
@@ -104,34 +125,33 @@ ul {
 			font-size: @navbar-height / 2.5;
 			color: @guild-name-color;
 		}
-	}
-}
 
-.navbar-menu {
-	background-color: @container-background;
-	width: @page-width;
-	height: @navbar-height;
-	margin: auto;
+		.navbar-menu {
+			background-color: @container-background;
+			width: @page-width;
+			height: @navbar-height;
+			margin: auto;
+		}
+	}
 }
 
 .main-container {
 	width: @page-width;
-	min-height: @page-height;
 	margin: auto;
 }
 
 .container-left {
 	background-color: @container-background;
-	width: @page-width / 4;
-	height: @page-height;
+	width: 20%;
+	min-height: @page-height;
 	float: left;
 }
 
 .container-right {
 	background-color: @container-background;
-	width: (@page-width - (@page-width / 4)) - 20px;
-	height: @page-height;
-	margin-left: 10px;
+	width: 75%;
+	min-height: @page-height;
+	margin-left: 1%;
 	float: left;
-	padding: 5px;
+	padding: 2%;
 }
