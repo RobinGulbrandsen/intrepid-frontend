@@ -36,3 +36,101 @@
 *	Imports the spesific less files
 */
 @import '../app/home/home.less';
+
+@guild-name-color: #EFF080;
+@container-background: #1A0F09;
+@menu-border-color: #552B12;
+@navbar-height: 60px;
+@navbar-font-size: 20px;
+@navbar-font-color: #552B12;
+@page-width: 800px;
+@page-height: 700px;
+
+body {
+	background-image: url('../assets/background.png');
+	background-color: black;
+	background-size: 100% auto;
+	background-position: right @navbar-height;
+	background-repeat:no-repeat;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.navbar {
+	background-color: @container-background;
+	width: 100%;
+	height: @navbar-height;
+	margin-bottom: 10px;
+
+	.navbar-menu {
+		width: @page-width;
+		height: @navbar-height;
+		margin: auto;
+
+		li {
+			float: right;
+			height: @navbar-height - 20;
+			border-left-width: 1px;
+			border-left-style: solid;
+			border-left-color: @menu-border-color;
+			border-right-width: 1px;
+			border-right-style: solid;
+			border-right-color: @menu-border-color;
+			padding-top: @navbar-height / 3;
+			padding-left: 10px;
+			padding-right: 10px;
+			font-size: @navbar-font-size;
+			color: @navbar-font-color;
+		}
+
+		li:hover {
+			background-color: @menu-border-color;
+			color: @container-background;
+		}
+
+		ul {
+			list-style-type: none;
+		}
+
+		p {
+			float: left;
+			padding-top: @navbar-height / 3;
+			padding-left: 20px;
+			font-size: @navbar-height / 2.5;
+			color: @guild-name-color;
+		}
+	}
+}
+
+.navbar-menu {
+	background-color: @container-background;
+	width: @page-width;
+	height: @navbar-height;
+	margin: auto;
+}
+
+.main-container {
+	width: @page-width;
+	min-height: @page-height;
+	margin: auto;
+}
+
+.container-left {
+	background-color: @container-background;
+	width: @page-width / 4;
+	height: @page-height;
+	float: left;
+}
+
+.container-right {
+	background-color: @container-background;
+	width: (@page-width - (@page-width / 4)) - 10px;
+	height: @page-height;
+	margin-left: 10px;
+	float: left;
+}

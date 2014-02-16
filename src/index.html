@@ -14,8 +14,24 @@
 
   </head>
   <body>
-    <h1>Intrepid Gaming</h1>
-    <hr />
-    <div class="container" ui-view="main"></div>
+    <div class="navbar">
+      <div class="navbar-menu">
+        <p>Intrepid Gaming</p>
+        <ul>
+          <a href="#"><li>Application</li></a>
+          <a href="#"><li>Forum</li></a>
+          <a href="#"><li>Members</li></a>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="container-left">
+
+      </div>
+      <div class="container-right">
+        <div ui-view="main"></div>
+      </div>
+    </div>
   </body>
 </html>
