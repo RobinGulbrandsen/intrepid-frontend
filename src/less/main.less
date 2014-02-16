@@ -40,14 +40,17 @@
 @font-title-color: #F0B104;
 @font-title-span: #512E19;
 @font-color: #CEC9A0;
+@font-link-color: #7C3F1B;
 @guild-name-color: #F0B104;
 @container-background: #1A0F09;
-@menu-border-color: #552B12;
+@menu-border-color: #7C3F1B;
 @navbar-height: 60px;
 @navbar-font-size: 20px;
-@navbar-font-color: #552B12;
+@navbar-font-color: #7C3F1B;
+@page-min-width: 800px;
 @page-width: 70%;
 @page-height: 700px;
+
 
 body {
 	background-image: url('../assets/background.png');
@@ -64,8 +67,18 @@ body {
 	line-height: 1.625em;
 }
 
+a {
+	color: @font-link-color;
+
+}
+
+hr {
+	color: @font-link-color;
+}
+
 p {
 	color: @font-color;
+	text-align: justify;
 }
 
 h1, h2, h3, h4, h5, {
@@ -85,11 +98,13 @@ ul {
 .navbar {
 	background-color: @container-background;
 	width: 100%;
+	min-width: @page-min-width;
 	height: @navbar-height;
 	margin-bottom: 10px;
 
 	.navbar-menu {
 		width: @page-width;
+		min-width: @page-min-width;
 		height: @navbar-height;
 		margin: auto;
 
@@ -136,20 +151,61 @@ ul {
 }
 
 .main-container {
+	min-width: @page-min-width;
 	width: @page-width;
 	margin: auto;
 }
 
 .container-left {
 	background-color: @container-background;
-	width: 20%;
+	width: 30%;
 	min-height: @page-height;
 	float: left;
+
+	input {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.login {
+		margin: 1em;
+
+		button {
+			float: right;
+		}
+	}
+
+	.profile {
+		margin: 1em;
+
+		img {
+			width: 50px;
+			height: 50px;
+			background-color: green;
+			float: left;
+			margin-right: 10px;
+		}
+
+		button {
+			float: right;
+		}
+
+		.profile-name {
+			font-size: 20px;
+			margin: 0px;
+
+		}
+
+		.profile-rbg {
+			font-size: 12px;
+			color: @menu-border-color;
+		}
+	}
 }
 
 .container-right {
 	background-color: @container-background;
-	width: 75%;
+	width: 65%;
 	min-height: @page-height;
 	margin-left: 1%;
 	float: left;
