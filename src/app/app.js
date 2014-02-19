@@ -18,12 +18,31 @@ angular.module( 'intrepidApp', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $http ) {
+  $scope.currentUser = null;
+  $scope.loginMsg = "";
+
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
       $scope.pageTitle = toState.data.pageTitle + ' | Intrepid Gaming' ;
     }
   });
+  
+  $scope.login = function() {
+    $scope.loginMsg = "Loading, please wait..";
+    
+    $http({
+      method: 'POST', 
+      url:    'api/login',
+      data:   $scope.formData
+    }).success(function(data, status, headers, config) {
+        if(data != null) {
+          $scope.currentUser = data;  
+        }
+    }).error(function(data, status) {
+        $scope.loginMsg = "Wrong username or password!";
+    });
+  };
 })
 
 ;

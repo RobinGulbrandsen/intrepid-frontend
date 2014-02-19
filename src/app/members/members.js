@@ -16,6 +16,17 @@ angular.module( 'intrepidApp.members', [
 })
 
 .controller( 'MembersCtrl', function HomeController( $scope ) {
+  $scope.members = null;
+  $http({method: 'GET', url: 'api/armory/users'}).
+  success(function(data, status, headers, config) {
+    $scope.members = data;
+  }).
+  error(function(data, status, headers, config) {
+    $http({method: 'GET', url: '../src/app/home/home.json'}).
+    success(function(data, status, headers, config) {
+      $scope.members = data;
+    });
+  });
 })
 
 ;

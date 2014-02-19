@@ -26,76 +26,30 @@
     </div>
 
     <div class="main-container">
-      <div class="container-left">
+      <div class="container-left shadow">
         <div class="container-left-character">
-          <div class="login">
+
+          <div class="login" data-ng-show="!currentUser">
             <h4>Login</h4>
-            <form>
-              <input type="text" placeholder="Username..">
-              <input type="password" placeholder="Password..">
+            <form data-ng-submit="login()">
+              <input type="text" placeholder="Username.." data-ng-model="formData.username">
+              <input type="password" placeholder="Password.." data-ng-model="formData.password">
+              <p>{{ loginMsg }}</p>
               <a href="#">Register</a>
               <button type="submit">Login</button>
             </form>
           </div>
-          <div class="profile">
+
+          <div class="profile" data-ng-show="currentUser">
             <h4>Profile</h4>
-            <img src="">
-            <p class="profile-name">Nightwing</p>
-            <p class="profile-rbg">Rated Battleground: 1800</p>
+            <img src="{{ currentUser.thumbnail }}">
+            <p class="profile-name">{{ currentUser.name }}</p>
+            <p class="profile-rbg">Rated Battleground: <span>{{ currentUser.rbg }}</span></p>
           </div>
         </div>
       </div>
-      <div class="container-right" ui-view="main">
-        <h2>Title 2<span> date</span></h2>
-        <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-        <h2>Title 2<span> date</span></h2>
-        <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-        <h2>Title 2<span> date</span></h2>
-        <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
-
-                <p>
-Let's start off this tutorial by setting up everything that we'll need in order to build our authentication application. We'll first need to download and install Laravel plus all of its dependencies. We'll also utilize the popular Twitter Bootstrap to make our app look pretty. Then we'll do a tad bit of configuration, connect to our database and create the required table and finally, start up our server to make sure everything is working as expected.
-        </p>
+      
+      <div class="container-right shadow" ui-view="main">
       </div>
     </div>
   </body>

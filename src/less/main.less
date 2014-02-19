@@ -44,7 +44,7 @@
 @guild-name-color: #F0B104;
 @container-background: #1A0F09;
 @menu-border-color: #7C3F1B;
-@navbar-height: 60px;
+@navbar-height: 50px;
 @navbar-font-size: 20px;
 @navbar-font-color: #7C3F1B;
 @page-min-width: 800px;
@@ -95,12 +95,21 @@ ul {
 	padding: 0px;
 }
 
+.shadow {
+	-webkit-box-shadow: 0 0 50px 5px black;
+	   -moz-box-shadow: 0 0 50px 5px black;
+	        box-shadow: 0 0 50px 5px black;
+}
+
 .navbar {
+	background-image: url('navbar-background.png');
+	background-height: 100%;
 	background-color: @container-background;
 	width: 100%;
 	min-width: @page-min-width;
 	height: @navbar-height;
 	margin-bottom: 10px;
+	border-bottom: 3px solid black;
 
 	.navbar-menu {
 		width: @page-width;
@@ -158,8 +167,11 @@ ul {
 
 .container-left {
 	background-color: @container-background;
+	background-image: url('container-background.png');
+	background-size: 100% auto;
+	background-repeat:no-repeat;
+	border-radius: 5px;
 	width: 30%;
-	min-height: @page-height;
 	float: left;
 
 	input {
@@ -205,6 +217,10 @@ ul {
 
 .container-right {
 	background-color: @container-background;
+	background-image: url('container-background.png');
+	background-size: 100% auto;
+	background-repeat:no-repeat;
+	border-radius: 5px;
 	width: 65%;
 	min-height: @page-height;
 	margin-left: 1%;
