@@ -15,7 +15,7 @@ angular.module( 'intrepidApp.login', [
   });
 })
 
-.controller( 'loginCtrl', function HomeController( $scope, $http ) {
+.controller( 'loginCtrl', function LoginController( $scope, $http ) {
 
 
   $scope.login = function() {

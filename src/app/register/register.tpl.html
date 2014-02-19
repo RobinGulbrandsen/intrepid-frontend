@@ -1,22 +1,19 @@
-<h2>Register Screen</h2>
-
+<h2>Register</h2>
 <p>
-	To be able to register on this site you need to have an active character in World of Warcraft above level 10.
+	To be able to register on this site you need to have an active character in World of Warcraft above level 10. All information about your character will be gathered at the armory for the leaders to check your credentials.
 </p>
-
-<h3>Validate Character</h3>
 <p>
-Coming...
+	First thing you need to do, is enter World of Warcraft, and unequip <span class="bold">chest</span> and <span class="bold">main hand weapon</span>. When it's done, you can fill in the form and click register.
 </p>
-
-<h3>Register</h3>
-
 <form data-ng-submit="register()">
-	<input type="text" placeholder="Username.." data-ng-model="username">
-	<input type="password" placeholder="Password.." data-ng-model="password">
-	<input type="password" placeholder="Password.." data-ng-model="password2">
-
+	<input type="text" placeholder="Username.." data-ng-model="formData.username">
+	<input type="text" placeholder="Server.." data-ng-model="formData.server">
+	<span class="error">{{ errorUsernameOrServer }}</span>
+	<input type="password" placeholder="Password.." data-ng-model="formData.password">
+	<input type="password" placeholder="Repeat Password.." data-ng-model="formData.password2">
+	<span class="error">{{ errorPassword }}</span>
+	<input type="textarea" placeholder="About yourself" data-ng-model="formData.about">
 	<button type="submit">Register</button>
 </form>
 
-{{ console }}
+<p class="register-success" data-ng-model="registerSuccess"></p>

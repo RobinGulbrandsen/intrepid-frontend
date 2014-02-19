@@ -36,6 +36,7 @@
 *	Imports the spesific less files
 */
 @import '../app/home/home.less';
+@import '../app/register/register.less';
 
 @font-title-color: #F0B104;
 @font-title-span: #512E19;
@@ -50,7 +51,6 @@
 @page-min-width: 800px;
 @page-width: 70%;
 @page-height: 700px;
-
 
 body {
 	background-image: url('../assets/background.png');
@@ -93,6 +93,11 @@ h1, h2, h3, h4, h5, {
 ul {
 	margin: 0px;
 	padding: 0px;
+}
+
+.bold {
+	font-weight: bold;
+	color: @font-link-color;
 }
 
 .shadow {
@@ -142,12 +147,18 @@ ul {
 			list-style-type: none;
 		}
 
-		p {
+		.guild-logo {
 			float: left;
 			padding-top: @navbar-height / 3;
 			padding-left: 20px;
 			font-size: @navbar-height / 2.5;
 			color: @guild-name-color;
+			width: 300px;
+		}
+
+		.guild-logo:hover {
+			text-decoration: none;
+			color: @font-link-color;
 		}
 
 		.navbar-menu {
@@ -156,6 +167,7 @@ ul {
 			height: @navbar-height;
 			margin: auto;
 		}
+
 	}
 }
 
