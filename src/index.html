@@ -20,7 +20,7 @@
         <ul>
           <a href="#"><li>Application</li></a>
           <a href="#"><li>Forum</li></a>
-          <a href="#"><li>Members</li></a>
+          <a href="#/members"><li>Members</li></a>
         </ul>
       </div>
     </div>
@@ -43,7 +43,7 @@
           <div class="profile" data-ng-show="currentUser">
             <h4>Profile</h4>
             <img src="{{ currentUser.thumbnail }}">
-            <p class="profile-name">{{ currentUser.name }}</p>
+            <p class="profile-name">{{ currentUser.username }}</p>
             <p class="profile-rbg">Rated Battleground: <span>{{ currentUser.rbg }}</span></p>
           </div>
         </div>

@@ -29,7 +29,11 @@ angular.module( 'intrepidApp.about', [
     $scope.fetchingData = "";
   }).
   error(function(data, status, headers, config) {
-    console.log("Error - " + status);
+    if(status == 404) {
+      $scope.fetchingData = "404 - The character was not found";
+    } else {
+      $scope.fetchingData = "500 - You broke it! Now, grab your ankles!";
+    }
   });
 })
 

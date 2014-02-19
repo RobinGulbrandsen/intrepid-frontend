@@ -15,7 +15,7 @@ angular.module( 'intrepidApp.members', [
   });
 })
 
-.controller( 'MembersCtrl', function HomeController( $scope ) {
+.controller( 'MembersCtrl', function HomeController( $scope, $http ) {
   $scope.members = null;
   $http({method: 'GET', url: 'api/armory/users'}).
   success(function(data, status, headers, config) {
