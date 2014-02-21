@@ -29,7 +29,6 @@
  * Twitter Bootstrap. We must include it last so we can overwrite any variable
  * definitions in our imported stylesheets.
  */
-
 @import 'variables.less';
 
 /**
@@ -38,204 +37,251 @@
 @import '../app/home/home.less';
 @import '../app/register/register.less';
 
-@font-title-color: #F0B104;
-@font-title-span: #512E19;
-@font-color: #CEC9A0;
-@font-link-color: #7C3F1B;
-@guild-name-color: #F0B104;
-@container-background: #1A0F09;
-@menu-border-color: #7C3F1B;
-@navbar-height: 50px;
-@navbar-font-size: 20px;
-@navbar-font-color: #7C3F1B;
-@page-min-width: 800px;
-@page-width: 70%;
-@page-height: 700px;
+@body-background-color: #010101;
+@site-width: 990px;
+@transparent: 0;
+@border-color: #888;
+@spec-blue: #0e1724;
 
-body {
-	background-image: url('../assets/background.png');
-	background-color: black;
-	background-size: 100% auto;
-	background-position: right @navbar-height;
-	background-repeat:no-repeat;
-	margin: 0px;
-	padding: 0px;
 
-	font-style: normal;
+/* - GENERIC - */
+body{
 	font-family: "Helvetica Neue", Arial, adelle-sans, sans-serif;
 	font-size: 1em;
-	line-height: 1.625em;
+	line-height: normal;
+	padding: 0;
+	margin: 0;
+	background-image: url('background.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-color: @body-background-color;
 }
-
-a {
-	color: @font-link-color;
-
+#wrapper{
+	min-height: 100%;
 }
-
-hr {
-	color: @font-link-color;
+.cl{
+	clear:both;
 }
+/* - HEAD - */
 
-p {
-	color: @font-color;
-	text-align: justify;
-}
-
-h1, h2, h3, h4, h5, {
-	color: @font-title-color;
-
-	span {
-		color: @font-title-span;
-		font-size: 0.6em;
-	}
-}
-
-ul {
-	margin: 0px;
-	padding: 0px;
-}
-
-.bold {
-	font-weight: bold;
-	color: @font-link-color;
-}
-
-.shadow {
-	-webkit-box-shadow: 0 0 50px 5px black;
-	   -moz-box-shadow: 0 0 50px 5px black;
-	        box-shadow: 0 0 50px 5px black;
-}
-
-.navbar {
+#header-wrapper{
+	display: block;
+	height: 55px;
 	background-image: url('navbar-background.png');
-	background-height: 100%;
-	background-color: @container-background;
+}
+#header-holder{
+	min-height: 50px;
+	width: @site-width;
+	margin: 0px auto;
+}
+#navigation{
+	ul{
+		background-image: url('navbar-background.png');
+		background-repeat: no-repeat;  
+		margin: 0;
+		background-color: rgba(0,0,0,@transparent);
+		padding-top: 15px;
+		height: 34px;
+
+		a {
+			color: #fff;
+			text-decoration: none; 
+			background-color: rgba(0,0,0,@transparent);
+			li {
+				display: inline;
+				font-size: 17px;
+				font-family: arial;
+				padding: 14px 25px;
+				height: 30px;
+			}
+			li:hover{
+				color: @spec-blue;
+				background-color: rgba(200, 200, 200, 0.2);
+			}
+		}
+
+	}
+
+} 
+#nav-padder{
+	height: 35px;
+	background-color: rgba(0,0,0,@transparent);
+	background-image: url('nav-boarder.png');
+	background-repeat: no-repeat;
+}
+#title{
+	width: 500px;
+	text-align: center;
+	display: inline;
+	font-size:50px;
+	color: #fff;
+	font-variant: small-caps;
+	margin-top: 9px;
+	float: right;
+	display: inline;
+}
+
+/* - BODY - */
+
+#body-wrapper{
+	line-height: 1.625em;
+	width: @site-width;
+	display: block;
+	margin: 0px auto;
+}
+fieldset{
+	border: none;
+	padding: 2px 20px;
+	.field{
+		outline: none;
+		padding: 5px 10px;
+		border: 1px solid @border-color;
+		border-radius: 2px;
+		width: 240px;
+	}
+	.field:focus{
+		border: 1px solid #04f;
+	}
+	.assign-right{
+		float:right;
+	}
+	a{
+		text-decoration: none;
+	}
+	.reg-btn{
+		width: 100px;
+		text-align: center;
+		vertical-align: center;
+		height: 26px;
+		border: 1px solid @border-color;
+		background-color: #aaa;
+		border-radius: 2px;
+		color: #000;
+	}
+	.reg-btn:hover{
+		border: 1px solid #04f;
+		color: #fff;
+		background-color: #777;
+	}
+	.sub-btn{
+		border: 1px solid #888;
+		background-color: #aaa;
+		height: 28px;
+		border-radius: 2px;
+		width: 100px;
+	}
+	.sub-btn:hover{
+		border: 1px solid #04f;
+		color: #fff;
+		background-color: #777;
+	}
+}
+#container{
+
 	width: 100%;
-	min-width: @page-min-width;
-	height: @navbar-height;
-	margin-bottom: 10px;
-	border-bottom: 3px solid black;
-
-	.navbar-menu {
-		width: @page-width;
-		min-width: @page-min-width;
-		height: @navbar-height;
-		margin: auto;
-
-		li {
-			float: right;
-			height: @navbar-height - 20;
-			border-left-width: 1px;
-			border-left-style: solid;
-			border-left-color: @menu-border-color;
-			border-right-width: 1px;
-			border-right-style: solid;
-			border-right-color: @menu-border-color;
-			padding-top: @navbar-height / 3;
-			padding-left: 10px;
-			padding-right: 10px;
-			font-size: @navbar-font-size;
-			color: @navbar-font-color;
+	display: block;
+	position: relative;
+	.title{
+		height: 25px;
+		padding: 8px 0 0 50px;
+		color: #fff;
+		font-size: 18px;
+		margin: 0;
+		background-image: url('container.png');
+	}
+	.container-body{
+		box-shadow: 30px 0 60px -10px rgba(21, 32, 52, 0.7), -30px 0 60px -10px rgba(21, 32, 52, 0.7);
+		border-left: 2px solid @spec-blue;
+		border-right: 2px solid @spec-blue;
+		display: inline-block;
+		background-color: #ddd;
+		padding: 20px;
+		color: #000;
+		p{
+			text-align: justify;
 		}
-
-		li:hover {
-			background-color: @menu-border-color;
-			color: @container-background;
-		}
-
-		ul {
-			list-style-type: none;
-		}
-
-		.guild-logo {
-			float: left;
-			padding-top: @navbar-height / 3;
-			padding-left: 20px;
-			font-size: @navbar-height / 2.5;
-			color: @guild-name-color;
+		.left-container{
 			width: 300px;
-		}
-
-		.guild-logo:hover {
-			text-decoration: none;
-			color: @font-link-color;
-		}
-
-		.navbar-menu {
-			background-color: @container-background;
-			width: @page-width;
-			height: @navbar-height;
-			margin: auto;
-		}
-
-	}
-}
-
-.main-container {
-	min-width: @page-min-width;
-	width: @page-width;
-	margin: auto;
-}
-
-.container-left {
-	background-color: @container-background;
-	background-image: url('container-background.png');
-	background-size: 100% auto;
-	background-repeat:no-repeat;
-	border-radius: 5px;
-	width: 30%;
-	float: left;
-
-	input {
-		width: 100%;
-		margin-bottom: 10px;
-	}
-
-	.login {
-		margin: 1em;
-
-		button {
-			float: right;
-		}
-	}
-
-	.profile {
-		margin: 1em;
-
-		img {
-			width: 50px;
-			height: 50px;
-			background-color: green;
+			display: block;
 			float: left;
-			margin-right: 10px;
+			padding: 15px;
+			margin: 5px 15px 5px 5px;
+			border-right: 1px dashed #04f;
+			border-bottom: 1px dashed #04f;
+			h2{
+				margin: 0;
+				font-size: 20px;
+				border-bottom: 1px dashed #04f;
+			}
 		}
-
-		button {
+		.right-container{
+			display: block;
 			float: right;
-		}
-
-		.profile-name {
-			font-size: 20px;
-			margin: 0px;
-
-		}
-
-		.profile-rbg {
-			font-size: 12px;
-			color: @menu-border-color;
+			width: 586px;
+			min-height: 200px;
+			.article{
+				display: block;
+				min-height: 100px;
+				.article-head{
+					h2{
+						font-size: 26px;
+						margin: 15px 5px;
+						padding: 0px 15px;
+						display: inline-block;
+					}
+					span{
+						float: right;
+						font-size: 12px;
+						display: inline;
+						color: #888;
+					}
+				}
+				.article-body{
+					p{
+						line-height: 1.625em;
+					}
+				}
+			}
 		}
 	}
+	.foot{
+		height: 33px;
+		margin-top: -9px;
+		background-image: url('nav-boarder.png');
+	}
+
 }
 
-.container-right {
-	background-color: @container-background;
-	background-image: url('container-background.png');
-	background-size: 100% auto;
-	background-repeat:no-repeat;
-	border-radius: 5px;
-	width: 65%;
-	min-height: @page-height;
-	margin-left: 1%;
-	float: left;
-	padding: 2%;
+/* - FOOTER - */
+#footer-wrapper{
+	position:relative;
+	width: @site-width;
+	margin: 0 auto;
+	vertical-align: bottom;
+	height: 60px;
+	display: block;
+	#footer-base{
+		background-image: url('navbar-background.png');
+		height: 35px;
+		width: 100%;
+		#footer-text{
+			padding-top: 8px;
+			width: @site-width;
+			text-align: center;
+			margin: 0 auto;
+			color: #999;
+		}
+	}
+	#footer-padder{
+		width: @site-width;
+		height: 33px;
+		margin-bottom: -4px;
+		background-image: url('container.png');
+		background-repeat: no-repeat;
+	}
+	#footer-bottom-padder{
+		width: @site-width;
+		height: 33px;
+		background-image: url('nav-boarder.png');
+	}
 }
