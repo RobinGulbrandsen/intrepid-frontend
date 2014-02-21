@@ -3,6 +3,7 @@ angular.module( 'intrepidApp', [
   'templates-common',
   'intrepidApp.404',
   'intrepidApp.about',
+  'intrepidApp.forum',
   'intrepidApp.home',
   'intrepidApp.login',
   'intrepidApp.members',
