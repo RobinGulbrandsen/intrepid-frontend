@@ -15,13 +15,14 @@ angular.module( 'intrepidApp.register', [
   });
 })
 
-.controller( 'registerCtrl', function RegisterController( $scope, $http ) {
+.controller( 'registerCtrl', function RegisterController( $scope, $http, $location ) {
   $scope.errorPassword = "";
   $scope.errorUsernameOrServer = "";
   $scope.formData = {};
 
   $scope.register = function() {
-    if($scope.formData.username && $scope.formData.password && $scope.formData.password2 && $scope.formData.server) {
+    if($scope.formData.username && $scope.formData.password && $scope.formData.password2 && 
+            $scope.formData.server && $scope.formData.email) {
       resetErrorMsg();
       
       if($scope.formData.password !== $scope.formData.password2) {
@@ -30,22 +31,20 @@ angular.module( 'intrepidApp.register', [
         //check if username and server matches a character without chest and weapons
         $http({
         method: 'POST', 
-        url:    'api/authenticate',
+        url:    'api/register',
         data:   $scope.formData
         })
         .success(function(data, status, headers, config) {
-          console.log("registered!");
+          $location.path("/");
         })
         .error(function(data, status, headers, config) {
-          if(status == 404) {
-            $scope.errorUsernameOrServer = "Could not find " + $scope.formData.username + " on " + $scope.formData.server;
+          if(status == 400) {
+            $scope.registerError = data.error.message;
           } else {
-            $scope.errorUsernameOrServer = "You broke it!";
-          } 
+            $scope.registerError = "You broke it!";
+          }
         });
       }
-    } else {
-      console.log($scope.formData);
     }
   };
 

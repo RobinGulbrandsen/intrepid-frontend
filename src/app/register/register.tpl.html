@@ -8,12 +8,15 @@
 <form data-ng-submit="register()">
 	<input type="text" placeholder="Username.." data-ng-model="formData.username">
 	<input type="text" placeholder="Server.." data-ng-model="formData.server">
+	<input type="email" placeholder="Email.." data-ng-model="formData.email">
 	<span class="error">{{ errorUsernameOrServer }}</span>
 	<input type="password" placeholder="Password.." data-ng-model="formData.password">
 	<input type="password" placeholder="Repeat Password.." data-ng-model="formData.password2">
 	<span class="error">{{ errorPassword }}</span>
 	<input type="textarea" placeholder="About yourself" data-ng-model="formData.about">
+	<span>{{ registerError }}</span>
 	<button type="submit">Register</button>
+
 </form>
 
 <p class="register-success" data-ng-model="registerSuccess"></p>
