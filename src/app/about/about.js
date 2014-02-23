@@ -1,6 +1,5 @@
 angular.module( 'intrepidApp.about', [
   'ui.state',
-  'placeholders',
   'ui.bootstrap'
 ])
 
