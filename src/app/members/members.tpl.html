@@ -1,9 +1,8 @@
-<div id="member-list">
+ <div id="members">
 	<p>The following list of players in the guild is on the characters above level 10.</p>
-	<input type="text" data-ng-model="txtNameSearch" placeholder="search..">
-	<table>
-		<thead>
-		<tr>
+	<input type="text" data-ng-model="txtNameSearch" placeholder="search...">
+	<table id="member-table">
+		<tr id="first">
 			<td>Thumbnail</td>
 			<td>Name</td>
 			<td>Class</td>
@@ -11,14 +10,13 @@
 			<td>Level</td>
 			<td>Guild Rank</td>
 		</tr>
-		</thead>
 		<tr data-ng-repeat="member in members | orderBy: 'guildRank' | filter:txtNameSearch">
-			<td><img src="{{ member.thumbnail }}" alt="thumbnail of character" class="character-thumbnail"></img></td>
-			<td><a href="#/about?server=Ravencrest&character={{ member.name }}">{{member.name}}</td>
-			<td>{{ member.class }}</td>
-			<td>{{ member.race }}</td>
-			<td>{{ member.level }}</td>
-			<td>{{ member.guildRank }}</td>
+			<td class="member-thumbnail"><!-- <img src="{{ member.thumbnail }}" alt="thumbnail of character" class="character-thumbnail"> --></td>
+			<td class="member-name"><a href="#/about?server=Ravencrest&character={{ member.name }}">{{member.name}}</td>
+			<td class="member-class">{{ member.class }}</td>
+			<td class="member-race">{{ member.race }}</td>
+			<td class="member-level">{{ member.level }}</td>
+			<td class="member-rank">{{ member.guildRank }}</td>
 		</tr>
 	</table>
 </div>

@@ -1,22 +1,50 @@
-<h2>Register</h2>
-<p>
-	To be able to register on this site you need to have an active character in World of Warcraft above level 10. All information about your character will be gathered at the armory for the leaders to check your credentials.
-</p>
-<p>
-	First thing you need to do, is enter World of Warcraft, and unequip <span class="bold">chest</span> and <span class="bold">main hand weapon</span>. When it's done, you can fill in the form and click register.
-</p>
-<form data-ng-submit="register()">
-	<input type="text" placeholder="Username.." data-ng-model="formData.username">
-	<input type="text" placeholder="Server.." data-ng-model="formData.server">
-	<input type="email" placeholder="Email.." data-ng-model="formData.email">
-	<span class="error">{{ errorUsernameOrServer }}</span>
-	<input type="password" placeholder="Password.." data-ng-model="formData.password">
-	<input type="password" placeholder="Repeat Password.." data-ng-model="formData.password2">
-	<span class="error">{{ errorPassword }}</span>
-	<input type="textarea" placeholder="About yourself" data-ng-model="formData.about">
-	<span>{{ registerError }}</span>
-	<button type="submit">Register</button>
 
-</form>
+<div class="left-container"><h2>Good to know:</h2>
+            <p>
+            <ul>
+              <li>When you press &quot;Apply&quot; button, you are also creating an application into our guild!</li>
+              <li>Please <u>unequip</u> your <u>chest</u> and <u>weapon(s)</u> in-game before attempting to apply!<br> By doing so you are validating your application.</li>
+              <li>Username equals to the character name if it is not that obvious.</li>
+              <li>Using our services means accepting the <a href="#">Terms of Use</a>. By violating it at any point the access to the services are revoked immidiately.</li>
+            </ul>
+          </p>
+</div>
 
-<p class="register-success" data-ng-model="registerSuccess"></p>
+
+<div class="right-container"><h2>Creat an application...</h2>
+<fieldset>
+  <form data-ng-submit="register()">
+  <table>
+    <tr>
+      <td><input type="text" placeholder="Username" class="field-reg" data-ng-model="formData.username"></td>
+    </tr>
+    <tr>
+      <td><input type="text" placeholder="Realm" class="field-reg" data-ng-model="formData.server"></td>
+    </tr>{{ errorUsernameOrServer }}
+    <tr>
+      <td><input type="text" placeholder="Email adress" class="field-reg" data-ng-model="formData.email"></td>
+    </tr>
+    <tr>
+      <td><input type="password" placeholder="Password" class="field-reg" data-ng-model="formData.password"></td>
+    </tr>
+    <tr>
+      <td><input type="password" placeholder="Password again" class="field-reg" data-ng-model="formData.password2"></td>
+    </tr>{{ errorPassword }}
+    <tr>
+      <td><textarea placeholder="Enter a short bio" data-ng-model="formData.about"></textarea></td>      
+    </tr>
+    <tr class="assign-center">
+      <td><input type="submit" value="Apply" class="sub-btn" data-ng-click="register()"></td>     
+    </tr>
+    <tr>
+    	<td>{{ registerError }}</td>
+    </tr>
+    <tr>
+    	<td><p class="register-success" data-ng-model="registerSuccess"></p></td>
+    </tr>
+  </table>
+  </form>
+</fieldset>
+</div>
+
+

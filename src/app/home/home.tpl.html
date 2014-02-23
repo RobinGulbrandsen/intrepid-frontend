@@ -15,54 +15,41 @@
         </tr>
         <tr>
           <td>
-              <a href="#/register"><div class="reg-btn">Register</div></a>
+              <a href="#/register"><input type="button" value="Apply" class="reg-btn" data-ng-click="redirectToApply()"></a>
           </td>
           <td class="assign-right">
-          <input type="submit" name="" value="Login" class="sub-btn">
+          <input type="submit" value="Login" class="reg-btn" data-ng-click="login()">
         </td>
         </tr>
         </table>
       </fieldset>
     </form>
   </div>
-</div>
-<div class="right-container">
-  <div class="article">
-    <div class="article-head">
-      <h2>Our brand new website</h2><span>Tyekx @ 2014.02.21. 18:01</span>
-    </div>
-    <div class="article-body">
-      <p>Since our website has been made new opportunities are in sight, this is just some random bullsit anyways. But I'll keep typing it for having this little text appearing on the front page, can't wait to see this page all together.</p>
-    </div>
+  <div class="login" data-ng-show="currentUser">
+    <table>
+      <tr class="logged-user">
+        <td class="logged-user-image"><img src="{{ currentUser.thumbnail }}" height="84px" width="84px" alt="Char thumbnail"></td>
+        <td class="logged-user-data">{{ currentUser.username }} <br> <span>RBG: {{ currentUser.rbg }}</span></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="button" value="Logout" class="reg-btn" data-ng-click="logout()"></td>
+      </tr>
+    </table>
   </div>
 </div>
 <div class="right-container">
-  <div class="article">
+
+  <!-- ROBIN, I LEFT THE REPEAT EMPTY! ALONG WITH THE VARIABLES! DOUBLE CHECK THEM 
+      ORDER BY: DATE, DESCENDING-->
+  <div class="article" data-ng-repeat="article in ... | orderBy:...">
     <div class="article-head">
-      <h2>Our brand new website</h2><span>Tyekx @ 2014.02.21. 18:01</span>
+      <h2>{{ article.TITLE }}</h2><span>{{ article.AUTHOR }}</span>
     </div>
     <div class="article-body">
-      <p>Since our website has been made new opportunities are in sight, this is just some random bullsit anyways. But I'll keep typing it for having this little text appearing on the front page, can't wait to see this page all together.</p>
+      <p>{{ article.TEXT }}</p>
     </div>
   </div>
+
+
 </div>
-<div class="right-container">
-  <div class="article">
-    <div class="article-head">
-      <h2>Our brand new website</h2><span>Tyekx @ 2014.02.21. 18:01</span>
-    </div>
-    <div class="article-body">
-      <p>Since our website has been made new opportunities are in sight, this is just some random bullsit anyways. But I'll keep typing it for having this little text appearing on the front page, can't wait to see this page all together.</p>
-    </div>
-  </div>
-</div>
-<div class="right-container">
-  <div class="article">
-    <div class="article-head">
-      <h2>Our brand new website</h2><span>Tyekx @ 2014.02.21. 18:01</span>
-    </div>
-    <div class="article-body">
-      <p>Since our website has been made new opportunities are in sight, this is just some random bullsit anyways. But I'll keep typing it for having this little text appearing on the front page, can't wait to see this page all together.</p>
-    </div>
-  </div>
 </div>

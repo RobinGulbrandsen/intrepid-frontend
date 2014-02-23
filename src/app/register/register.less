@@ -1,0 +1,69 @@
+@import 'variables.less';
+
+fieldset{
+	border: none;
+	padding: 2px 20px;
+	table{
+		width: 344px;
+		margin: 0px auto;
+	}
+	textarea{
+		min-height: 50px;
+	}
+	.field-reg, .field, textarea{
+		margin: 5px 0px;
+		outline: none;
+		height: 30px;
+		padding: 5px 10px;
+		border: 1px solid @border-color;
+		border-radius: 2px;
+	}
+	.field{
+		width: 240px;
+	}
+	.field-reg, textarea{
+		width: 340px;
+		max-width: 340px;
+	}
+	.field:focus, .field-reg:focus, textarea:focus{
+		border: 1px solid @focus-border-color;
+		background-color: @focus-background-color;
+		color: @focus-color;
+	}
+	.assign-right{
+		float:right;
+	}
+	.assign-center{
+		text-align: center;
+	}
+	a{
+		text-decoration: none;
+	}
+	.reg-btn{
+		width: 100px;
+		text-align: center;
+		vertical-align: center;
+		height: 26px;
+		border: 1px solid @border-color;
+		background-color: #aaa;
+		border-radius: 2px;
+		color: #000;
+	}
+	.reg-btn:hover{
+		border: 1px solid @focus-border-color;
+		color: @focus-color;
+		background-color: @focus-background-color;
+	}
+	.sub-btn{
+		border: 1px solid @focus-background-color;
+		background-color: #aaa;
+		height: 28px;
+		border-radius: 2px;
+		width: 100px;
+	}
+	.sub-btn:hover{
+		border: 1px solid @focus-border-color;
+		color: @focus-color;
+		background-color: @focus-background-color;
+	}
+}
