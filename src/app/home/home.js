@@ -16,8 +16,9 @@ angular.module( 'intrepidApp.home', [
 })
 
 .controller( 'HomeCtrl', function HomeController( $scope, $http ) {
-  $scope.currentUser ="";
+  $scope.currentUser = "";
   $scope.loginMsg = "";
+  $scope.articles = [];
 
   $scope.login = function() {
     $scope.loginMsg = "Loading, please wait..";
@@ -35,32 +36,41 @@ angular.module( 'intrepidApp.home', [
     });
   };
 
+  $scope.createArticle = function() {
+    $http({
+      method: 'POST', 
+      url:    'api/articles',
+      data:   $scope.formData
+    }).success(function(data, status, headers, config) {
+        $scope.getArticles();
+    }).error(function(data, status) {
+        $scope.errorCreateArticle = data;
+    });
+  };
+
+  $scope.getArticles = function() {
+    $http({
+      method: 'GET', 
+      url:    'api/articles'
+    }).success(function(data, status, headers, config) {
+       $scope.articles = data; 
+    });
+  };
+  $scope.getArticles();
+
+  $scope.deleteArticle = function($id) {
+    console.log($id);
+    $http({
+      method: 'DELETE', 
+      url:    'api/articles/' + $id
+    }).success(function(data, status, headers, config) {
+        $scope.getArticles();
+    });
+  };
+
   $scope.redirectToApply = function() {
     $location.path = '#/register';
   };
-
-  //hard coded content of articles
-  $scope.articles = [
-    {
-      title   : "new title",
-      author  : "Nightwíng",
-      text    : "An article containing text with news or announcements",
-      created_at : "24.02.2014"
-    },
-    {
-      title   : "new title",
-      author  : "Nightwíng",
-      text    : "An article containing text with news or announcements",
-      created_at : "23.02.2014"
-    },
-    {
-      title   : "new title",
-      author  : "Nightwíng",
-      text    : "An article containing text with news or announcements",
-      created_at : "22.02.2014"
-    }
-  ];
-
 })
 ;
 
