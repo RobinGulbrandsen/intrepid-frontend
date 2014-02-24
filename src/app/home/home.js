@@ -38,6 +38,29 @@ angular.module( 'intrepidApp.home', [
   $scope.redirectToApply = function() {
     $location.path = '#/register';
   };
+
+  //hard coded content of articles
+  $scope.articles = [
+    {
+      title   : "new title",
+      author  : "Nightwíng",
+      text    : "An article containing text with news or announcements",
+      created_at : "24.02.2014"
+    },
+    {
+      title   : "new title",
+      author  : "Nightwíng",
+      text    : "An article containing text with news or announcements",
+      created_at : "23.02.2014"
+    },
+    {
+      title   : "new title",
+      author  : "Nightwíng",
+      text    : "An article containing text with news or announcements",
+      created_at : "22.02.2014"
+    }
+  ];
+
 })
 ;
 

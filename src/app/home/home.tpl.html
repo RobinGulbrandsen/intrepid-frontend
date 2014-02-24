@@ -39,14 +39,12 @@
 </div>
 <div class="right-container">
 
-  <!-- ROBIN, I LEFT THE REPEAT EMPTY! ALONG WITH THE VARIABLES! DOUBLE CHECK THEM 
-      ORDER BY: DATE, DESCENDING-->
-  <div class="article" data-ng-repeat="article in ... | orderBy:...">
+  <div class="article" data-ng-repeat="article in articles | orderBy: created_at">
     <div class="article-head">
-      <h2>{{ article.TITLE }}</h2><span>{{ article.AUTHOR }}</span>
+      <h2>{{ article.title }}</h2><span>{{ article.author }} | {{ article.created_at }}</span>
     </div>
     <div class="article-body">
-      <p>{{ article.TEXT }}</p>
+      <p>{{ article.text }}</p>
     </div>
   </div>
 
