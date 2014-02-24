@@ -11,7 +11,9 @@
 			<td>Guild Rank</td>
 		</tr>
 		<tr data-ng-repeat="member in members | orderBy: 'guildRank' | filter:txtNameSearch">
-			<td class="member-thumbnail"><!-- <img src="{{ member.thumbnail }}" alt="thumbnail of character" class="character-thumbnail"> --></td>
+			<td class="member-thumbnail">
+				<img src="{{ member.thumbnail }}" alt="thumbnail of character" class="character-thumbnail">
+			</td>
 			<td class="member-name"><a href="#/about?server=Ravencrest&character={{ member.name }}">{{member.name}}</td>
 			<td class="member-class">{{ member.class }}</td>
 			<td class="member-race">{{ member.race }}</td>
