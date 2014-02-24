@@ -1,73 +1,20 @@
 <div id="forum">
-  <table>
-                <tr class="forum-group">  
-                  <td colspan="4">Group Name I.</td> 
-                </tr> 
-                <tr>
-                  <td>IKON</td>
-                  <td>Board name <br><span>Description of Board name.</span></td>
-                  <td>X Posts <br> Y Topics</td>
-                  <td>LAST POST</td>
-                </tr>
+      <!-- ROBIN, Check the variables and the repeats please. -->
+          <!-- DATA-NG-REPEAT="GROUP IN GROUPS" -->
+              <div class="forum-group" data-ng-repeat="..groups..">
+                  <div class="group-name">{{ group.name }}</div>          
+                  <table>
+                      <!-- DATA-NG-REPEAT="FORUM IN FORUMS" -->
+                        <tr data-ng-repeat="..forums..">
+                        <!-- Some icon into this empty td? Maybe? -->
+                        <td></td>
 
-                <tr>
-                  <td>IKON</td>
-                  <td>Board name <br><span>Description of Board name.</span></td>
-                  <td>X Posts <br> Y Topics</td>
-                  <td>LAST POST</td>
-                </tr>
+                        <td><a href="#/forum/{{forum.id}}">{{ forum.name }}</a><br><span>{{ forum.description }}</span></td>
+                        <!--  Do we have these coloumns in our database? -->
+                        <td>{{ forum.stats.posts }} Posts <br> {{ forum.stats.topics }} Topics</td>
 
-                <tr>
-                  <td>IKON</td>
-                  <td>Board name <br><span>Description of Board name.</span></td>
-                  <td>X Posts <br> Y Topics</td>
-                  <td>LAST POST</td>
-                </tr>
-
-                <tr class="forum-group">  
-                  <td colspan="4">Group Name II.</td> 
-                </tr> 
-
-                <tr>
-                  <td>IKON</td>
-                  <td>Board name <br><span>Description of Board name.</span></td>
-                  <td>X Posts <br> Y Topics</td>
-                  <td>LAST POST</td>
-                </tr>
-
-                <tr class="forum-group">  
-                  <td colspan="4">Group Name III.</td> 
-                </tr> 
-
-                <tr>
-                  <td>IKON</td>
-                  <td>Board name <br><span>Description of Board name.</span></td>
-                  <td>X Posts <br> Y Topics</td>
-                  <td>LAST POST</td>
-                </tr>
-
-                <tr>
-                  <td>IKON</td>
-                  <td>Board name <br><span>Description of Board name.</span></td>
-                  <td>X Posts <br> Y Topics</td>
-                  <td>LAST POST</td>
-                </tr>
-                 <tr class="forum-group">  
-                  <td colspan="4">Group Name IV.</td> 
-                </tr> 
-
-                <tr>
-                  <td>IKON</td>
-                  <td>Board name <br><span>Description of Board name.</span></td>
-                  <td>X Posts <br> Y Topics</td>
-                  <td>LAST POST</td>
-                </tr>
-
-                <tr>
-                  <td>IKON</td>
-                  <td>Board name <br><span>Description of Board name.</span></td>
-                  <td>X Posts <br> Y Topics</td>
-                  <td>LAST POST</td>
-                </tr>
-             </table>
-           </div>
+                        <td>in {{ forum.lastTopic.name }} <span>at {{ forum.lastTopic.date }} in {{ forum.lastTopic.topic }}</span></td>
+                      </tr>
+                    </table> 
+                </div>  
+</div>

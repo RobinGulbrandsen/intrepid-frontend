@@ -1,15 +1,18 @@
-<h2>Character information</h2>
-<p>{{fetchingData }}</p>
-<ul data-ng-show="!fetchingData">
-	<li>Name: {{ characterData.name }}</li>
-	<li>Level: {{ characterData.level }}</li>
-	<li>Class: {{ characterData.class }}</li>
-	<li>Race: {{ characterData.race }}</li>
-	<li>Guild: {{ characterData.guild.name }}</li>
-	<li>Average Item Level: {{ characterData.items.averageItemLevel }}</li>
-	<li>RatedBattleground: {{ characterData.pvp.brackets.ARENA_BRACKET_RBG.rating }}</li>
-	<li>2v2 {{ characterData.pvp.brackets.ARENA_BRACKET_2v2.rating }}</li>
-	<li>3v3 {{ characterData.pvp.brackets.ARENA_BRACKET_3v3.rating }}</li>
-	<li>5v5 {{ characterData.pvp.brackets.ARENA_BRACKET_5v5.rating }}</li>
-</ul>
+<div class="character-profile" data-ng-show="fetchingData">
+	<p>{{ fetchingData }}</p>
+</div>
 
+<div class="character-profile" data-ng-show="!fetchingData" style="background-image: url({{characterData.bgimage}}); background-repeat: no-repeat; background-size: 100%; min-height: 700px; width:942px; border: 2px solid #888;">
+	<h2>Profile of {{ characterData.name }}</h2>
+	<ul>
+		<li>Level: {{ characterData.level }}</li>
+		<li>Class: {{ characterData.class }}</li>
+		<li>Race: {{ characterData.race }}</li>
+		<li>Guild: {{ characterData.guild.name }}</li>
+		<li>Average Item Level: {{ characterData.items.averageItemLevel }}</li>
+		<li>RatedBattleground: {{ characterData.pvp.brackets.ARENA_BRACKET_RBG.rating }}</li>
+		<li>2v2 {{ characterData.pvp.brackets.ARENA_BRACKET_2v2.rating }}</li>
+		<li>3v3 {{ characterData.pvp.brackets.ARENA_BRACKET_3v3.rating }}</li>
+		<li>5v5 {{ characterData.pvp.brackets.ARENA_BRACKET_5v5.rating }}</li>
+	</ul>
+</div>

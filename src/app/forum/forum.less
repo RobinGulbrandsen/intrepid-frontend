@@ -1,0 +1,25 @@
+@import 'variables.less';
+
+#forum{
+	display: block;
+	table{
+		width: @calculated-width;
+		border-collapse: collapse;
+		tr{
+			border-bottom: 1px dashed @spec-blue;
+		}
+		tr:last-child{
+			border-bottom: none;
+		}
+	}
+	.forum-group{
+		.group-name{
+			padding-left: 30px;
+			color: #fff;
+			font-weight: bold;
+			font-size: 22px;
+			background-color: @dark-grey-color;
+		}
+		border-bottom: none;
+	}
+}
