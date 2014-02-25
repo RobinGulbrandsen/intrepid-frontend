@@ -15,10 +15,10 @@ angular.module( 'intrepidApp.home', [
   });
 })
 
-.controller( 'HomeCtrl', function HomeController( $scope, $http ) {
-  $scope.currentUser = "";
+.controller( 'HomeCtrl', function HomeController( $scope, $http, userFactory, $cookieStore  ) {
   $scope.loginMsg = "";
   $scope.articles = [];
+  $scope.currentUser = userFactory.getUser($cookieStore);
 
   $scope.login = function() {
     $scope.loginMsg = "Loading, please wait..";
@@ -30,6 +30,7 @@ angular.module( 'intrepidApp.home', [
     }).success(function(data, status, headers, config) {
         if(data != null) {
           $scope.currentUser = data;  
+          userFactory.setUser($cookieStore, data);
         }
     }).error(function(data, status) {
         $scope.loginMsg = "Wrong username or password!";

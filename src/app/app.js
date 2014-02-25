@@ -1,4 +1,5 @@
 angular.module( 'intrepidApp', [
+  'ngCookies',
   'templates-app',
   'templates-common',
   'intrepidApp.404',
@@ -18,8 +19,21 @@ angular.module( 'intrepidApp', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $http ) {
+//shared factory with functions for session controll
+.factory('userFactory', function() {
+    return {
+        getUser: function($cookieStore) {
+            return $cookieStore.get("currentUser");
+        },
+        setUser: function($cookieStore, $data) {
+          $cookieStore.put("currentUser", $data);
+        }
+    };
+})
 
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $http, userFactory, $cookieStore ) {
+  //get currentUser from cookie
+  $scope.currentUser = userFactory.getUser($cookieStore);
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
@@ -27,9 +41,6 @@ angular.module( 'intrepidApp', [
       $scope.pageTitle = toState.data.pageTitle + ' | Intrepid Gaming' ;
     }
   });
-  
-
 })
-
 ;
 

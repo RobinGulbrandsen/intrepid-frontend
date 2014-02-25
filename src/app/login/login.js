@@ -15,8 +15,11 @@ angular.module( 'intrepidApp.login', [
   });
 })
 
-.controller( 'loginCtrl', function LoginController( $scope, $http ) {
+.controller( 'loginCtrl', function LoginController( $scope, $http, userFactory, $cookieStore ) {
 
+  //get currentUser from cookie
+  //$scope.currentUser = userFactory.getUser();
+  console.log("call in loginCtrl");
 
   $scope.login = function() {
     $formData = {};
@@ -27,7 +30,8 @@ angular.module( 'intrepidApp.login', [
       data:   $scope.formData
     })
       .success(function(data, status, headers, config) {
-        $scope.console = data;
+        userFactory.setUser($cookieStore, data);
+        $scope.currentUser = data;
     });
   };
 
