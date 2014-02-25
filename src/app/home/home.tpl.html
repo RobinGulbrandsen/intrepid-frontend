@@ -1,3 +1,4 @@
+<div class="input" data-ng-show="currentUser.guildRank <= 3">
 <div class="left-container">
   <div class="login" data-ng-show="!currentUser">
     <h2>Login</h2>
@@ -49,7 +50,8 @@
       </p>
     </form>
   </div>
-  <div class="article" data-ng-repeat="article in articles | orderBy: created_at">
+
+<div class="article" data-ng-repeat="article in articles | orderBy: created_at">
     <div class="article-head">
       <h2>{{ article.title }}</h2><span>{{ article.author }} | {{ article.created_at }}</span>
       <a href="#" data-ng-click="deleteArticle(article.id)" data-ng-show="currentUser.guildRank >= 3">
@@ -60,5 +62,3 @@
       <p>{{ article.content }}</p>
     </div>
   </div>
-</div>
-</div>

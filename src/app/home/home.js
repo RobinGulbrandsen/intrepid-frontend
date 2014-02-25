@@ -15,6 +15,9 @@ angular.module( 'intrepidApp.home', [
   });
 })
 
+.controller( 'HomeCtrl', function HomeController( $scope, $http ) {
+
+
 .controller( 'HomeCtrl', function HomeController( $scope, $http, userFactory, $cookieStore  ) {
   $scope.loginMsg = "";
   $scope.articles = [];
@@ -36,7 +39,7 @@ angular.module( 'intrepidApp.home', [
         $scope.loginMsg = "Wrong username or password!";
     });
   };
-
+  
   $scope.createArticle = function() {
     $http({
       method: 'POST', 
@@ -58,7 +61,7 @@ angular.module( 'intrepidApp.home', [
     });
   };
   $scope.getArticles();
-
+  
   $scope.deleteArticle = function($id) {
     console.log($id);
     $http({
@@ -67,10 +70,6 @@ angular.module( 'intrepidApp.home', [
     }).success(function(data, status, headers, config) {
         $scope.getArticles();
     });
-  };
-
-  $scope.redirectToApply = function() {
-    $location.path = '#/register';
   };
 })
 ;

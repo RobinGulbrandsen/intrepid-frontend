@@ -19,46 +19,80 @@
 <body>
   <div id="wrapper">
 
-    <div id="header-wrapper">
+    <div id="wrapper-header">
+      <!-- width: 100% -->
       <div id="header-holder">
-      <div id="title">
-        Intrepid Gaming
-      </div>
+        <!-- width: site -->
 
-      <div id="navigation">
-        <ul>
-          <a href="#/"><li>Home</li></a>
-          <a href="#/forum"><li>Forum</li></a>
-          <a href="#/members"><li>Members</li></a>
-          <a href="#/register"><li>Sign up</li></a>
-        </ul>
-      </div>
-
-      <div id="nav-padder"></div>
+        <div id="header-title">
+          Intrepid Gaming
+        </div>
+          <div id="header-navigation">
+            <ul>
+              <a href="#/"><li>Home</li></a>
+              <a href="#/forum"><li>Forum</li></a>
+              <a href="#/members"><li>Members</li></a>
+              <a href="#/register"><li>Sign up</li></a>
+            </ul>
+          </div>
+        <div class="tab-down"></div>
       </div>
     </div>
     <div class="cl"></div>
 
-    <div id="body-wrapper">
+    <div id="wrapper-container">
+      <div class="tab-up page-title-debug">{{ simplePageTitle }}</div>
+      <div id="container-body">
 
-      <div id="container">
-        <div class="title">
-          {{ simplePageTitle }}
+        <div id="upper-container">
+          <div class="note">{{ loginMsg }}</div>
+          <div id="login-panel-holder">
+            <div class="login-style"></div>
+
+              <div class="login-fields" data-ng-show="!currentUser">
+
+                <form data-ng-submit="login()">
+                  <input type="text" placeholder="Username..." class="field">
+                  <input type="password" placeholder="Password..." class="field"><br>
+                  <input type="button" value="Apply" class="button" data-ng-click="redirectToApply()"> 
+                  <input type="button" value="Login" class="button" data-ng-click="login()">
+                </form>
+
+              </div>
+
+              <div class="login-fields" data-ng-show="currentUser">
+
+                <div class="login-fields">
+                  <!-- Only username for now, this is the only design I could think of. With image it looked weird.
+                        We could make a profile later
+                     -->
+                  <h3>Welcome back, <b>{{ currentUser.username }}</b></h3><br>
+                  <input type="button" value="Log out" class="button button-right" data-ng-click="logout()">
+                </div>
+
+              </div>
+
+            <div class="login-style style-right"></div>
+            </div>      
+          </div>
+
+        <div id="bottom-container" ui-view="main">
+
         </div>
-        <div class="container-body"  ui-view="main"></div>      
-        <div class="foot"></div>
-      </div>
-    </div>
 
-  <div id="footer-wrapper">
-    <div id="footer-padder"></div>
-    <div id="footer-base">
-      <div id="footer-text">
-        intr3pid.eu @ 2014, all rights reserved.
       </div>
+      <div class="tab-down"></div>
     </div>
-    <div id="footer-bottom-padder"></div>
-  </div>
+    <!-- ... -->
+    <div id="wrapper-footer">
+      <div class="tab-up"></div>
+      <div id="footer-text-holder">
+        <div id="footer-text">
+          intrepid gaming @ 2014. All rights reserved.
+        </div>
+      </div>
+      <div class="tab-down"></div>
+    </div>
 
   </div>
 </body>

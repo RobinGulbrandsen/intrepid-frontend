@@ -29,6 +29,10 @@ angular.module( 'intrepidApp', [
           $cookieStore.put("currentUser", $data);
         }
     };
+ })
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $http ) {
+  $scope.currentUser = "";
+  $scope.loginMsg = "";
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $http, userFactory, $cookieStore ) {
@@ -41,6 +45,33 @@ angular.module( 'intrepidApp', [
       $scope.pageTitle = toState.data.pageTitle + ' | Intrepid Gaming' ;
     }
   });
+
+  $scope.login = function() {
+    $scope.loginMsg = "Loading, please wait..";
+    
+    $http({
+      method: 'POST', 
+      url:    'api/login',
+      data:   $scope.formData
+    }).success(function(data, status, headers, config) {
+        if(data != null) {
+          $scope.currentUser = data;  
+        }
+    }).error(function(data, status) {
+        $scope.loginMsg = "Wrong username or password!";
+    });
+  };
+
+  $scope.redirectToApply = function() {
+    $location.path = '#/register';
+  };
+
+  $scope.logout = function() {
+
+    //Robin your turn here!
+    //log the user out, delete session
+
+  };
 })
 ;
 
