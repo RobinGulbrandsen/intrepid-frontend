@@ -52,6 +52,9 @@ body{
 	background-size: 100%;
 	background-color: #000;
 }
+ul{
+	list-style-image: url('list-icon.png');
+}
 p{
 	text-align: justify;
 }
@@ -59,7 +62,7 @@ p{
 	clear:both;
 }
 #wrapper-header{
-	color: #fff;
+	color: @color-white;
 	height: 68px;
 	background-image: url('new.png');
 	background-repeat: repeat-x;
@@ -71,7 +74,7 @@ p{
 		a{
 			text-decoration: none;
 			background-color: transparent;
-			padding: 9px 20px;
+			padding: 9px @padding;
 			color: #fff;
 			text-align: center;
 			li{
@@ -94,7 +97,7 @@ p{
 }
 #header-title{
 	position: relative;
-	width: 500px;
+	width: @title-width;
 	margin-top: 4px;
 	height: 20px;
 	display: inline;
@@ -108,35 +111,30 @@ p{
 	color: #fff;
 	font-size: 18px;
 }
-.tab-up{
+.tab-up, .tab-down{
 	display: block;
-	background-image: url('top-tab.png');
-	height: 23px;
+	width: @tab-const-width;
+	height: @tab-const-height;
 	background-repeat: no-repeat;
-	width: 507px;
+}
+.tab-up{
+	background-image: url('top-tab.png');
 }
 .tab-down{
 	float: right;
-	display: block;
 	background-image: url('bottom-tab.png');
-	/* tab-const-height*/
-	height: 23px;
-	background-repeat: no-repeat;
-	/* tab-const-width */
-	width: 507px;
 }
 
 #header-holder, #wrapper-footer, #wrapper-container{
 	margin: 0 auto;
-	/* SITE WIDTH*/
-	width: 990px;
+	width: @site-width;
 }
 #header-holder{
 	height: inherit;
 }
 #wrapper-container{
 	display: block;
-	margin-bottom: 23px;
+	margin-bottom: @tab-const-height;
 }
 #wrapper-footer{
 	display: block;
@@ -146,9 +144,9 @@ p{
 		height: 45px;
 		#footer-text{
 			vertical-align: middle;
-			padding: 8px 0;
+			padding-top: 13px;
 			text-align: center;
-			color: #888;
+			color: @color-dark-grey;
 		}
 	}
 }
@@ -156,19 +154,18 @@ p{
 	display: inline-block;
 	min-height: 100px;
 	position: relative;
-	/* SPEC BLUE */
-	background-color: #ddd;	
-	width: 946px;
-	padding: 0px 20px 20px 20px;
-	border: 2px solid #0e1927;
+	background-color: @color-light-grey;	
+	width: @calculated-width;
+	padding: 0px @padding @padding @padding;
+	border: 2px solid @spec-blue;
 }
 #upper-container{
 	display: block;
-	width: 946px;
+	width: @calculated-width;
 	float: left;
 }
 #bottom-container{
-	width: 946px;
+	width: @calculated-width;
 	display: block;
 }
 #login-panel-holder{
@@ -179,7 +176,7 @@ p{
 	text-align: center;
 	background-image: url('login-style.png');
 	background-repeat:repeat-x;
-	background-color: #888;
+	background-color: @color-dark-grey;
 	background-position: bottom;
 	.login-fields{
 		margin: 3px 0;
@@ -207,7 +204,7 @@ p{
 	}
 }
 .note{
-	color: #0e1927;
+	color: @spec-blue;
 	display: inline;
 	max-width: 396px;
 	padding-top: 5px;
@@ -217,9 +214,9 @@ p{
 }
 .button{
 	width: 100px;
-	background-color: #ddd;
-	color: #128;
-	border: 1px solid #0e1927;
+	background-color: @color-light-grey;
+	color: @king-blue;
+	border: 1px solid @spec-blue;
 	border-radius: 2px;
 	outline: none;
 	margin-top: 2px;
@@ -229,16 +226,16 @@ p{
 }
 .field{
 	width: 130px;
-	border: 1px solid #0e1927;
+	border: 1px solid @spec-blue;
 	padding: 0 5px;
 	height: 20px;
 	border-radius: 2px;
 	outline: none;
-	background-color: #ddd;
-	color: #128;
+	background-color: @color-light-grey;
+	color: @king-blue;
 }
 .field:focus, .button:hover{
-	border-color: #0e1927;
-	color: #fff;
+	border-color: @spec-blue;
+	color: @color-white;
 	background-color: #666;
 }

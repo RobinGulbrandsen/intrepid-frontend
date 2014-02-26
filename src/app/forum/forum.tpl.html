@@ -1,20 +1,24 @@
 <div id="forum">
-      <!-- ROBIN, Check the variables and the repeats please. -->
-          <!-- DATA-NG-REPEAT="GROUP IN GROUPS" -->
+
               <div class="forum-group" data-ng-repeat="..groups..">
                   <div class="group-name">{{ group.name }}</div>          
                   <table>
-                      <!-- DATA-NG-REPEAT="FORUM IN FORUMS" -->
+
                         <tr data-ng-repeat="..forums..">
-                        <!-- Some icon into this empty td? Maybe? -->
+
                         <td></td>
 
-                        <td><a href="#/forum/{{forum.id}}">{{ forum.name }}</a><br><span>{{ forum.description }}</span></td>
-                        <!--  Do we have these coloumns in our database? -->
-                        <td>{{ forum.stats.posts }} Posts <br> {{ forum.stats.topics }} Topics</td>
+                        <td><a href="#/forum/{{forum.id}}">{{ forum.name }}</a>
+                            <br><span>{{ forum.description }}</span></td>
 
-                        <td>in {{ forum.lastTopic.name }} <span>at {{ forum.lastTopic.date }} in {{ forum.lastTopic.topic }}</span></td>
+                        <td class="row-center"><font class="colorize">{{ forum.stats.posts }}</font> Posts 
+                        <br>in <font class="colorize">{{ forum.stats.topics }}</font> Topics</td>
+
+                        <td class="row-center">in <font class="colorize"><a href="#/forum/{{forum.id}}/{{ forum.lastTopic.id }}">{{ forum.lastTopic.name }}</a></font>
+                        <br><span>by <font class="colorize">{{ forum.lastTopic.author }}</font> | {{ forum.lastTopic.date }}</span></td>
                       </tr>
                     </table> 
-                </div>  
+                </div> 
+
+
 </div>
