@@ -15,31 +15,11 @@ angular.module( 'intrepidApp.home', [
   });
 })
 
-.controller( 'HomeCtrl', function HomeController( $scope, $http ) {
-
-
-.controller( 'HomeCtrl', function HomeController( $scope, $http, userFactory, $cookieStore  ) {
+.controller( 'HomeCtrl', function HomeController( $scope, $http, $location, userFactory, $cookieStore  ) {
   $scope.loginMsg = "";
   $scope.articles = [];
   $scope.currentUser = userFactory.getUser($cookieStore);
 
-  $scope.login = function() {
-    $scope.loginMsg = "Loading, please wait..";
-    
-    $http({
-      method: 'POST', 
-      url:    'api/login',
-      data:   $scope.formData
-    }).success(function(data, status, headers, config) {
-        if(data != null) {
-          $scope.currentUser = data;  
-          userFactory.setUser($cookieStore, data);
-        }
-    }).error(function(data, status) {
-        $scope.loginMsg = "Wrong username or password!";
-    });
-  };
-  
   $scope.createArticle = function() {
     $http({
       method: 'POST', 

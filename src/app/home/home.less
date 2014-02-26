@@ -1,10 +1,21 @@
 @import 'variables.less';
 
+@min-height: 60px;
+
 .article{
-	min-height: 60px;
+	min-height: @min-height;
 
 	.article-head{
 		display: block;
+		min-height: @min-height;
+		
+		img {
+			float: left;
+			height: 20px;
+			width: 20px;
+			margin-top: 18px;
+			margin-left: 10px;
+		}
 		h2{
 			float: left;
 			display: block;

@@ -25,19 +25,44 @@ angular.module( 'intrepidApp', [
         getUser: function($cookieStore) {
             return $cookieStore.get("currentUser");
         },
-        setUser: function($cookieStore, $data) {
-          $cookieStore.put("currentUser", $data);
+        setUser: function($cookieStore, data) {
+          $cookieStore.put("currentUser", data);
+        },
+        login: function($scope, $http, $cookieStore) {
+          
+          $http({
+            method: 'POST', 
+            url:    'api/login',
+            data:   $scope.formData
+          }).success(function(data, status, headers, config) {
+            $scope.currentUser = data;
+            $cookieStore.put("currentUser", data);
+            $scope.loginMsg = "";    
+          }).error(function(data, status) {
+            $scope.loginMsg = data.error.message;
+          });
+        },
+        logout: function($scope, $http) {
+
+          $http({
+            method: 'POST', 
+            url:    'api/logout',
+            data:   $scope.formData
+          }).success(function(data, status, headers, config) {
+              $scope.currentUser = data;  
+              $cookieStore.put("currentUser", data);
+          }).error(function(data, status) {
+              console.log(data);
+          });
+
         }
     };
  })
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $http ) {
-  $scope.currentUser = "";
-  $scope.loginMsg = "";
-})
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, $http, userFactory, $cookieStore ) {
   //get currentUser from cookie
   $scope.currentUser = userFactory.getUser($cookieStore);
+  $scope.formData = "";
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
@@ -48,30 +73,17 @@ angular.module( 'intrepidApp', [
 
   $scope.login = function() {
     $scope.loginMsg = "Loading, please wait..";
-    
-    $http({
-      method: 'POST', 
-      url:    'api/login',
-      data:   $scope.formData
-    }).success(function(data, status, headers, config) {
-        if(data != null) {
-          $scope.currentUser = data;  
-        }
-    }).error(function(data, status) {
-        $scope.loginMsg = "Wrong username or password!";
-    });
-  };
-
-  $scope.redirectToApply = function() {
-    $location.path = '#/register';
+    var returnValues = userFactory.login($scope, $http, $cookieStore);
   };
 
   $scope.logout = function() {
-
-    //Robin your turn here!
-    //log the user out, delete session
-
+    userFactory.logout($scope, $http);
   };
+
+  $scope.redirectToApply = function() {
+    $location.path('/register');
+  };
+
 })
 ;
 
