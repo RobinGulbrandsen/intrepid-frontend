@@ -20,9 +20,8 @@
   <div id="wrapper">
 
     <div id="wrapper-header">
-      <!-- width: 100% -->
+      
       <div id="header-holder">
-        <!-- width: site -->
 
         <div id="header-title">
           Intrepid Gaming
@@ -53,23 +52,16 @@
 
                 <form data-ng-submit="login()">
                   <input type="text" placeholder="Username..." class="field" data-ng-model="formData.username">
-                  <input type="password" placeholder="Password..." class="field"  data-ng-model="formData.password"><br>
+                  <input type="password" placeholder="Password..." class="field" data-ng-model="formData.password"><br>
                   <input type="button" value="Apply" class="button" data-ng-click="redirectToApply()"> 
                   <input type="button" value="Login" class="button" data-ng-click="login()">
                 </form>
 
               </div>
 
-              <div class="login-fields" data-ng-show="currentUser">
-
-                <div class="login-fields">
-                  <!-- Only username for now, this is the only design I could think of. With image it looked weird.
-                        We could make a profile later
-                     -->
+              <div class="login-fields debug-login-fields" data-ng-show="currentUser">
                   <h3>Welcome back, <b>{{ currentUser.username }}</b></h3>
                   <input type="button" value="Log out" class="button button-right" data-ng-click="logout()">
-                </div>
-
               </div>
 
             <div class="login-style style-right"></div>
