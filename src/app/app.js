@@ -28,7 +28,7 @@ angular.module( 'intrepidApp', [
         setUser: function($cookieStore, data) {
           $cookieStore.put("currentUser", data);
         },
-        login: function($scope, $http, $cookieStore) {
+        login: function($scope, $http, $location, $cookieStore) {
           
           $http({
             method: 'POST', 
@@ -38,11 +38,12 @@ angular.module( 'intrepidApp', [
             $scope.currentUser = data;
             $cookieStore.put("currentUser", data);
             $scope.loginMsg = "";    
+            $location.path('/');
           }).error(function(data, status) {
             $scope.loginMsg = data.error.message;
           });
         },
-        logout: function($scope, $http, $cookieStore) {
+        logout: function($scope, $http, $location, $cookieStore) {
 
           $http({
             method: 'POST', 
@@ -51,6 +52,7 @@ angular.module( 'intrepidApp', [
           }).success(function(data, status, headers, config) {
               $scope.currentUser = null;  
               $cookieStore.put("currentUser", null);
+              $location.path('/');
           }).error(function(data, status) {
               console.log(data);
           });
@@ -73,11 +75,11 @@ angular.module( 'intrepidApp', [
 
   $scope.login = function() {
     $scope.loginMsg = "Loading, please wait..";
-    var returnValues = userFactory.login($scope, $http, $cookieStore);
+    var returnValues = userFactory.login($scope, $http, $location, $cookieStore);
   };
 
   $scope.logout = function() {
-    userFactory.logout($scope, $http, $cookieStore);
+    userFactory.logout($scope, $http, $location, $cookieStore);
   };
 
   $scope.redirectToApply = function() {

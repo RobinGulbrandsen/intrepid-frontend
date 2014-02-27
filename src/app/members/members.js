@@ -24,6 +24,12 @@ angular.module( 'intrepidApp.members', [
   error(function(data, status, headers, config) {
     console.log(status);
   });
+
+  $scope.redirectToMember = function(name) {
+    var url = "#/about?server=Ravencrest&character=" + name;
+    window.location.href = url;
+  };
+
 })
 
 ;
