@@ -17,6 +17,7 @@ angular.module( 'intrepidApp.about', [
 })
 
 .controller( 'AboutCtrl', function AboutCtrl( $scope, $stateParams, $http ) {
+  $scope.bgimage = 'assets/bgimage.png';
   $scope.server = $stateParams.server;
   $scope.characterId = $stateParams.character;
   $scope.characterData = "";
@@ -26,6 +27,11 @@ angular.module( 'intrepidApp.about', [
   success(function(data, status, headers, config) {
     $scope.characterData = data;
     $scope.fetchingData = "";
+
+    //converting thumbnail to bgimage
+    $scope.bgimage = "http://eu.battle.net/static-render/eu/" + 
+                    data.thumbnail.substring(0, data.thumbnail.length - 10) + 
+                    "profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/1-1.jpg";
   }).
   error(function(data, status, headers, config) {
     if(status == 404) {

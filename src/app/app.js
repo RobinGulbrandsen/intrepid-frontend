@@ -42,15 +42,15 @@ angular.module( 'intrepidApp', [
             $scope.loginMsg = data.error.message;
           });
         },
-        logout: function($scope, $http) {
+        logout: function($scope, $http, $cookieStore) {
 
           $http({
             method: 'POST', 
             url:    'api/logout',
             data:   $scope.formData
           }).success(function(data, status, headers, config) {
-              $scope.currentUser = data;  
-              $cookieStore.put("currentUser", data);
+              $scope.currentUser = null;  
+              $cookieStore.put("currentUser", null);
           }).error(function(data, status) {
               console.log(data);
           });
@@ -77,7 +77,7 @@ angular.module( 'intrepidApp', [
   };
 
   $scope.logout = function() {
-    userFactory.logout($scope, $http);
+    userFactory.logout($scope, $http, $cookieStore);
   };
 
   $scope.redirectToApply = function() {

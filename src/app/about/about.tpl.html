@@ -1,8 +1,7 @@
-<div class="character-profile" data-ng-show="fetchingData">
-	<p>{{ fetchingData }}</p>
+<div class="character-profile" data-ng-show="fetchingData" style="background-image: url({{ bgimage }});">
+	<p class="loading-text">{{ fetchingData }}</p>
 </div>
-
-<div class="character-profile" data-ng-show="!fetchingData" style="background-image: url({{characterData.bgimage}});">
+<div class="character-profile" data-ng-show="!fetchingData" style="background-image: url({{ bgimage }});">
 	<div class="character-base-info">
 		<h2>{{ characterData.name }}</h2>
 		<span>&lt; {{ characterData.guild.name }} &gt;</span>
