@@ -1,11 +1,21 @@
-<div class="input" data-ng-show="currentUser != null && currentUser.guildRank <= 3">
+<div id="new-article" data-ng-show="currentUser  != null && currentUser.guildRank <= 3">
+
+  <h3>New article ( point here )</h3>
     <form data-ng-submit="createArticle()">
-      <input type="text" placeholder="Title.." data-ng-model="formData.title">
-      <input type="textarea" placeholder="Content" data-ng-model="formData.content">
-      <input type="submit" value="Create">
-      <p>
-        {{ createArticleError }}
-      </p>
+      <table>
+      <tr>
+        <td><input type="text" placeholder="Title..." data-ng-model="formData.title"></td>
+      </tr>
+      <tr>
+        <td><textarea placeholder="Content..." data-ng-model="formData.content"></textarea></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Create" data-ng-click="createArticle()"></td>
+      </tr>
+      <tr>
+        <td>{{ createArticleError }}</td>
+      </tr>
+      </table>
     </form>
   </div>
  <div class="article" data-ng-repeat="article in articles | orderBy: created_at">
