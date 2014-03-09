@@ -7,7 +7,9 @@ angular.module( 'intrepidApp', [
   'intrepidApp.forum',
   'intrepidApp.home',
   'intrepidApp.members',
+  'intrepidApp.post',
   'intrepidApp.register',
+  'intrepidApp.topic',
   'ui.state',
   'ui.route'
 ])

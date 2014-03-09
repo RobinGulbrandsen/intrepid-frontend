@@ -1,0 +1,107 @@
+<div class="post-menu">
+	<button class="btn" data-ng-click="redirectToTopic()">Back</button>
+	<h1 class="post-title">{{ serverResponce.title }}</h1>
+	<div class="post-navigation-top">
+		<a data-ng-click="firstPage()">First</a>
+		<a data-ng-click="previousPage()">Previous</a> |
+		<a data-ng-click="nextPage()">Next</a> 
+		<a data-ng-click="lastPage()">Last</a>
+	</div>
+</div>
+
+<div class="post">
+	<div class="post-author">
+		<img class="post-author-img" src="{{serverResponce.author.thumbnail}}"/>
+		<div class="post-author-info"><p>{{serverResponce.author.username}}</p></div>
+	</div>
+	<div class="post-time">
+		{{ serverResponce.created_at }}
+	</div>
+	<div class="post-control" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3 || currentUser.id == serverResponce.user_id">
+		<img class="edit" src="assets/icon/edit.png" data-ng-click="editTopicShow()" />
+		<img class="delete" src="assets/icon/delete.png" data-ng-click="deleteTopic()" />
+	</div>
+	<div class="post-content">
+		<pre>
+{{ serverResponce.content }}
+		</pre>
+	</div>
+
+	<div class="post-edit" data-ng-show="editTopicVisible">
+		<form>
+		<fieldset>
+			<span class="error">{{ contentError }}</span>
+			<textarea rows="7" cols="110" placeholder="Write in content.." data-ng-model="serverResponce.content"></textarea>
+			<br/>
+
+			<div class="controller">
+				<input type="submit" value="Ok" data-ng-click="updateTopic()">
+				<button class="cancel" data-ng-click="editTopicHide()">Cancel</button>
+				<span class="error-server">{{ serverError }}</span>
+			</div>
+		</fieldset>
+		</form>
+	</div>
+</div>
+
+<div class="post" data-ng-repeat="post in serverResponce.posts">
+	<div class="post-author">
+		<img class="post-author-img" src="{{post.author.thumbnail}}"/>
+		<div class="post-author-info"><p>{{post.author.username}}</p></div>
+	</div>
+	<div class="post-time">
+		{{ post.created_at }}
+	</div>
+	<div class="post-control" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3 || currentUser.id == post.user_id">
+		<img class="edit" src="assets/icon/edit.png" data-ng-click="editPostShow($index)" />
+		<img class="delete" src="assets/icon/delete.png" data-ng-click="deletePost(post.id)" />
+	</div>
+	<div class="post-content">
+		<pre>
+{{ post.content }}
+		</pre>
+	</div>
+
+	<div class="post-edit" data-ng-show="editPostVisible[$index]">
+		<form>
+		<fieldset>
+			<span class="error">{{ contentError }}</span>
+			<textarea rows="7" cols="110" placeholder="Write in content.." data-ng-model="post.content"></textarea>
+			<br/>
+
+			<div class="controller">
+				<input type="submit" value="Ok" data-ng-click="updatePost($index)">
+				<button class="cancel" data-ng-click="editPostHide($index)">Cancel</button>
+				<span class="error-server">{{ serverError }}</span>
+			</div>
+		</fieldset>
+		</form>
+	</div>
+</div>
+
+<div class="post-crud">
+	<button data-ng-click="enableResponse()" data-ng-show="!writeResponseVisible && currentUser">Write Response</button>
+	<div class="post-navigation-bottom">
+		<a data-ng-click="firstPage()">First</a>
+		<a data-ng-click="previousPage()">Previous</a> |
+		<a data-ng-click="nextPage()">Next</a> 
+		<a data-ng-click="lastPage()">Last</a>
+	</div>
+</div>
+
+<div class="post-new" data-ng-show="writeResponseVisible">
+	<form>
+		<fieldset>
+			<span class="error">{{ contentError }}</span>
+			<textarea rows="7" cols="110" placeholder="Write in content.." data-ng-model="formData.content"></textarea>
+			<br/>
+
+			<div class="controller">
+				<input type="submit" value="Ok" data-ng-click="postForm()">
+				<button class="cancel" data-ng-click="disableResponse()">Cancel</button>
+				<span class="error-server">{{ serverError }}</span>
+			</div>
+		</fieldset>
+	</form>
+</div>
+

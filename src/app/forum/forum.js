@@ -16,5 +16,20 @@ angular.module( 'intrepidApp.forum', [
 })
 
 .controller( 'forumCtrl', function RegisterController( $scope, $http ) {
-  console.log("workign");
+  $scope.categoryGroups = "";
+
+  $http({
+    method: 'GET', 
+    url:    'api/forum'
+  }).success(function(data, status, headers, config) {
+      $scope.categoryGroups = data;
+  }).error(function(data, status) {
+      console.log(data);
+  });
+
+  $scope.redirectToTopic = function(id) {
+    var url = "#/forum/" + id;
+    window.location.href = url;
+  };
+
 });

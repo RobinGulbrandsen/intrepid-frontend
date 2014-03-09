@@ -1,0 +1,41 @@
+<div class="topic-list">
+
+	<div class="topic-menu" data-ng-show="!topicNewActive">
+		<button class="btn" data-ng-click="redirectToForum()">Back</button>
+		<h1>Topic name</h1>
+		<button class="btn-new" data-ng-click="createNew()" data-ng-show="currentUser">Create New</button>
+	</div>
+
+	<div class="topic-new" data-ng-show="topicNewActive">
+		<h1>New Post</h1>
+		<form data-ng-submit="sendForm()">
+			<fieldset>
+				<span class="error">{{ titleError }}</span>
+				<input type="text" placeholder="Title.." data-ng-model="formData.title"><br/>
+				<span class="error">{{ contentError }}</span>
+				<textarea placeholder="Content..." rows=10 data-ng-model="formData.content"></textarea><br/>
+				<div class="checkbox-field" data-ng-show="currentUser.guildRank <= 3">
+					Sticky:<input type="checkbox" data-ng-model="formData.sticky"><br/>
+				</div>
+				<div class="controller">
+					<input type="submit" value="Ok">
+					<button class="cancel" data-ng-click="cancelNew()">Cancel</button>
+					<span class="error-server">{{ serverError }}</span>
+				</div>
+				
+			</fieldset>
+		</form>
+	</div>
+	
+	<div class="topic" data-ng-repeat="topic in topics" data-ng-show="!topicNewActive" data-ng-click="redirectToPost(topic.id)">
+		<div class="topic-info">
+			<div class="topic-image-sticky" data-ng-show="topic.sticky"></div>
+			<div class="topic-image" data-ng-show="!topic.sticky"></div>
+			<p class="topic-name">{{ topic.title }}</p>
+		</div>
+		<div class="topic-stamp">
+			<p class="topic-stamp-name">Last post by {{ topic.last_post_name }}</p>
+			<p class="topic-stamp-time">at {{ topic.last_post_time }}</p>
+		</div>
+	</div>
+</div>

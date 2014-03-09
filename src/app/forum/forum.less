@@ -31,14 +31,42 @@
 			color: #666;
 		}
 	}
-	.forum-group{
-		.group-name{
-			padding-left: 30px;
-			color: #fff;
-			font-weight: bold;
-			font-size: 22px;
-			background-color: #666;
+	
+}
+.forum-group{
+	.group-name{
+		padding-left: 30px;
+		color: #fff;
+		font-weight: bold;
+		font-size: 22px;
+		background-color: #666;
+	}
+	width: @calculated-width;
+	border-bottom: none;
+}
+
+.forum-topic:hover {
+	background-color: #EEE;
+	cursor: pointer;
+}
+
+.forum-topic {
+	clear: both;
+	height: 40px;
+
+	.forum-text {
+		float: left;
+
+		p {
+			margin: 0px;
 		}
-		border-bottom: none;
+	}
+
+	.forum-statistic {
+		float: right;
+
+		p {
+			margin-top: 1px;
+		}
 	}
 }

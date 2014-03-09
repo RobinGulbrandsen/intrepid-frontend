@@ -1,0 +1,98 @@
+@import 'variables.less';
+
+.post-menu {
+	width: @calculated-width;
+
+	.post-title {
+		float: left;
+	}
+
+	.btn {
+		margin-top: 18px;
+		float: left;
+		margin-right: 1em;
+
+		border-radius: 5px;
+		padding: 5px 10px 5px 10px; 
+		font-weight:bold; 
+	}
+
+	.post-navigation-top,
+	.post-navigation-top:hover {
+		float: right;
+		margin-top: 25px;
+		cursor: pointer;
+	}
+}
+
+.post {
+	background-color: #CCC;		
+	clear: both;
+	min-height: 150px;
+	width: @calculated-width;
+	margin-bottom: 1em;
+
+	.post-author {
+		float: left;
+		width: 150px;
+		min-height: 100px;
+
+		img {
+			width: 70px;
+			height: 70px;
+			margin-left: 40px;
+			margin-top: 10px;
+			border: 1px solid gray;
+		}
+
+		p {
+			text-align: center;
+			padding-top: 0.5em;
+			font-weight: bold;
+		}
+	}
+
+	.post-time {
+		float: right;
+		margin: 0.2em;
+	}
+
+	.post-control {
+		float: right;
+
+		img:hover {
+			background-color: #DDD;
+			cursor: pointer;
+		}
+	}
+
+	.post-content {
+
+		pre {
+			overflow: auto;
+			width: 780px;
+			min-height: 90px;
+			font-family: "Helvetica Neue", Arial, adelle-sans, sans-serif;
+			font-size: 1.025em;
+			line-height: normal;
+		}
+	}
+}
+
+.post-crud {
+	button {
+		float: left;
+	}
+	
+	.post-navigation-bottom,
+	.post-navigation-bottom:hover {
+		float: right;
+		cursor: pointer;
+	}	
+}
+
+.post-new {
+	clear: both;
+	min-height: 100px;
+	width: @calculated-width;
+}

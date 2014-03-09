@@ -17,7 +17,7 @@ angular.module( 'intrepidApp.home', [
 
 .controller( 'HomeCtrl', function HomeController( $scope, $http, $location, userFactory, $cookieStore  ) {
   $scope.loginMsg = "";
-  $scope.articles = [];
+  $scope.articles = null;
   $scope.currentUser = userFactory.getUser($cookieStore);
 
   $scope.createArticle = function() {
@@ -26,6 +26,7 @@ angular.module( 'intrepidApp.home', [
       url:    'api/articles',
       data:   $scope.formData
     }).success(function(data, status, headers, config) {
+        $scope.formData = {};
         $scope.getArticles();
     }).error(function(data, status) {
         $scope.errorCreateArticle = data;
@@ -40,7 +41,10 @@ angular.module( 'intrepidApp.home', [
        $scope.articles = data; 
     });
   };
-  $scope.getArticles();
+  if($scope.articles == null) {
+    $scope.getArticles();  
+  }
+  
   
   $scope.deleteArticle = function($id) {
     console.log($id);

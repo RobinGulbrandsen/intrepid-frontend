@@ -1,21 +1,24 @@
-<div class="input" data-ng-show="currentUser != null && currentUser.guildRank <= 3">
-    <form data-ng-submit="createArticle()">
-      <input type="text" placeholder="Title.." data-ng-model="formData.title">
-      <input type="textarea" placeholder="Content" data-ng-model="formData.content">
-      <input type="submit" value="Create">
-      <p>
-        {{ createArticleError }}
-      </p>
-    </form>
+<div class="input" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3">
+  <form data-ng-submit="createArticle()">
+    <fieldset>
+    <input type="text" placeholder="Title.." data-ng-model="formData.title">
+    <textarea placeholder="Content" data-ng-model="formData.content"></textarea>
+    <input type="submit" value="Create">
+    <p>{{ createArticleError }}</p>
+    </fieldset>
+  </form>
+</div>
+
+<div class="article" data-ng-repeat="article in articles | orderBy: created_at">
+  <div class="article-head">
+    <h2>{{ article.title }}</h2><span>{{ article.author }} | {{ article.created_at }}</span>
+    <a href="#" data-ng-click="deleteArticle(article.id)" data-ng-show="currentUser != null && currentUser.guildRank <= 3">
+      <img src="assets/delete.png">
+    </a>
   </div>
- <div class="article" data-ng-repeat="article in articles | orderBy: created_at">
-    <div class="article-head">
-      <h2>{{ article.title }}</h2><span>{{ article.author }} | {{ article.created_at }}</span>
-      <a href="#" data-ng-click="deleteArticle(article.id)" data-ng-show="currentUser != null && currentUser.guildRank <= 3">
-        <img src="assets/delete.png">
-      </a>
-    </div>
-    <div class="article-body">
-      <p>{{ article.content }}</p>
-    </div>
+  <div class="article-body">
+    <pre>
+{{ article.content }}
+    </pre>
   </div>
+</div>

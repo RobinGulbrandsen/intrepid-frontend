@@ -1,24 +1,45 @@
 <div id="forum">
 
-              <div class="forum-group" data-ng-repeat="..groups..">
-                  <div class="group-name">{{ group.name }}</div>          
-                  <table>
+<div class="forum-group" >
+  <div class="group-name" data-ng-show="currentUser != null && currentUser.guildRank <= 3">Officers</div>          
 
-                        <tr data-ng-repeat="..forums..">
+  <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 0 }">
+    <div class="forum-text">
+      <p class="forum-title"><span class="colorize">New Title</span></p>
+      <p class="forum-descirption">new description</p>
+    </div>
+    <div class="forum-info">
+      <p class="forum-statistic">5 posts in 2 topics<br/>Last by Nightwing</p>
+    </div>
+  </div>
+</div>
 
-                        <td></td>
+<div class="forum-group" >
+  <div class="group-name" data-ng-show="currentUser != null">Members</div>          
 
-                        <td><a href="#/forum/{{forum.id}}">{{ forum.name }}</a>
-                            <br><span>{{ forum.description }}</span></td>
+  <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 1 }">
+    <div class="forum-text">
+      <p class="forum-title"><span class="colorize">New Title</span></p>
+      <p class="forum-descirption">new description</p>
+    </div>
+    <div class="forum-info">
+      <p class="forum-statistic">5 posts in 2 topics<br/>Last by Nightwing</p>
+    </div>
+  </div>
+</div>
 
-                        <td class="row-center"><font class="colorize">{{ forum.stats.posts }}</font> Posts 
-                        <br>in <font class="colorize">{{ forum.stats.topics }}</font> Topics</td>
+<div class="forum-group" >
+  <div class="group-name">Public</div>          
 
-                        <td class="row-center">in <font class="colorize"><a href="#/forum/{{forum.id}}/{{ forum.lastTopic.id }}">{{ forum.lastTopic.name }}</a></font>
-                        <br><span>by <font class="colorize">{{ forum.lastTopic.author }}</font> | {{ forum.lastTopic.date }}</span></td>
-                      </tr>
-                    </table> 
-                </div> 
-
+  <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 2 }">
+    <div class="forum-text">
+      <p class="forum-title"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-descirption">{{ category.description }}</p>
+    </div>
+    <div class="forum-info">
+      <p class="forum-statistic">5 posts in 2 topics<br/>Last by Nightwing</p>
+    </div>
+  </div>
+</div>
 
 </div>

@@ -7,25 +7,26 @@ fieldset{
 		width: 344px;
 		margin: 0px auto;
 	}
-	textarea{
+	.register-textarea{
 		min-height: 50px;
+		max-width: 330px;
 	}
-	.field-reg, .field, textarea{
+	.field-reg, .field, .register-textarea{
 		margin: 5px 0px;
 		outline: none;
 		height: 30px;
 		padding: 5px 10px;
 		border: 1px solid @border-color;
-		border-radius: 2px;
+		border-radius: 5px;
 	}
 	.field{
 		width: 240px;
 	}
-	.field-reg, textarea{
+	.field-reg {
 		width: 340px;
 		max-width: 340px;
 	}
-	.field:focus, .field-reg:focus, textarea:focus{
+	.field:focus, .field-reg:focus, .register-textarea:focus{
 		border: 1px solid @focus-border-color;
 		background-color: @focus-background-color;
 		color: @focus-color;
