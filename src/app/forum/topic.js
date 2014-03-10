@@ -19,6 +19,7 @@ angular.module( 'intrepidApp.topic', [
   $scope.currentUser = userFactory.getUser($cookieStore);
   $scope.topics = "";
   $scope.topicNewActive = false;
+  $scope.topicTitle = "";
 
   var categoryId = $stateParams.categoryId;
 
@@ -83,4 +84,16 @@ angular.module( 'intrepidApp.topic', [
     });
   };
   updateTopics();
+
+  var getTopicTitle = function() {
+    $http({
+    method: 'GET', 
+    url:    'api/forum/' + $stateParams.categoryId + '/title'
+    }).success(function(data, status, headers, config) {
+      $scope.topicTitle = data;
+    }).error(function(data, status) {
+      alert(data.error.message);
+    });
+  };
+  getTopicTitle();
 });

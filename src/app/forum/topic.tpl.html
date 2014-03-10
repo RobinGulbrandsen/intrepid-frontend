@@ -2,7 +2,7 @@
 
 	<div class="topic-menu" data-ng-show="!topicNewActive">
 		<button class="btn" data-ng-click="redirectToForum()">Back</button>
-		<h1>Topic name</h1>
+		<h1>{{ topicTitle }}</h1>
 		<button class="btn-new" data-ng-click="createNew()" data-ng-show="currentUser">Create New</button>
 	</div>
 
@@ -14,7 +14,7 @@
 				<input type="text" placeholder="Title.." data-ng-model="formData.title"><br/>
 				<span class="error">{{ contentError }}</span>
 				<textarea placeholder="Content..." rows=10 data-ng-model="formData.content"></textarea><br/>
-				<div class="checkbox-field" data-ng-show="currentUser.guildRank <= 3">
+				<div class="checkbox-field" data-ng-show="currentUser.guildRank <= 3 && currentUser.guildRank != null">
 					Sticky:<input type="checkbox" data-ng-model="formData.sticky"><br/>
 				</div>
 				<div class="controller">
@@ -29,8 +29,8 @@
 	
 	<div class="topic" data-ng-repeat="topic in topics" data-ng-show="!topicNewActive" data-ng-click="redirectToPost(topic.id)">
 		<div class="topic-info">
-			<div class="topic-image-sticky" data-ng-show="topic.sticky"></div>
-			<div class="topic-image" data-ng-show="!topic.sticky"></div>
+			<div class="topic-image-sticky" data-ng-show="topic.sticky == 1"></div>
+			<div class="topic-image" data-ng-show="topic.sticky == 0"></div>
 			<p class="topic-name">{{ topic.title }}</p>
 		</div>
 		<div class="topic-stamp">

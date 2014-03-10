@@ -5,11 +5,13 @@
 
   <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 0 }">
     <div class="forum-text">
-      <p class="forum-title"><span class="colorize">New Title</span></p>
-      <p class="forum-descirption">new description</p>
+      <p class="forum-title"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-descirption">{{ category.description }}</p>
     </div>
     <div class="forum-info">
-      <p class="forum-statistic">5 posts in 2 topics<br/>Last by Nightwing</p>
+      <p class="forum-statistic" data-ng-show="category.last_post_name">
+        Last by {{category.last_post_name}}<br/>At {{category.last_post_time}}
+      </p>
     </div>
   </div>
 </div>
@@ -19,11 +21,13 @@
 
   <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 1 }">
     <div class="forum-text">
-      <p class="forum-title"><span class="colorize">New Title</span></p>
-      <p class="forum-descirption">new description</p>
+      <p class="forum-title"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-descirption">{{ category.description }}</p>
     </div>
     <div class="forum-info">
-      <p class="forum-statistic">5 posts in 2 topics<br/>Last by Nightwing</p>
+      <p class="forum-statistic" data-ng-show="category.last_post_name">
+        Last by {{category.last_post_name}}<br/>At {{category.last_post_time}}
+      </p>
     </div>
   </div>
 </div>
@@ -37,7 +41,9 @@
       <p class="forum-descirption">{{ category.description }}</p>
     </div>
     <div class="forum-info">
-      <p class="forum-statistic">5 posts in 2 topics<br/>Last by Nightwing</p>
+      <p class="forum-statistic" data-ng-show="category.last_post_name">
+        Last by {{category.last_post_name}}<br/>At {{category.last_post_time}}
+      </p>
     </div>
   </div>
 </div>
