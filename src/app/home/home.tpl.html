@@ -24,3 +24,16 @@
     </pre>
   </div>
 </div>
+
+ <div class="article" data-ng-repeat="article in articles | orderBy: created_at">
+     <div class="article-head">
+       <h2>{{ article.title }}</h2><span>{{ article.author }} | {{ article.created_at }}</span>
+       <a href="#" data-ng-click="deleteArticle(article.id)" data-ng-show="currentUser != null && currentUser.guildRank <= 3">
+         <img src="assets/delete.png">
+       </a>
+     </div>
+     <div class="article-body">
+       <p>{{ article.content }}</p>
+     </div>
+   </div>
+
