@@ -36,3 +36,43 @@
 		}
 	}
 }
+#new-article{
+	height: 35px;
+	overflow: hidden;
+	display: inline-block;
+	width: @calculated-width;
+	transition: height 2s;
+	h3{
+		margin: 0;
+		border-bottom: 1px dashed @king-blue;
+		padding: 0;
+	}
+	input[type="text"],input[type="submit"], textarea{
+		padding: 5px;
+		margin: 5px;
+		outline: none;
+		height: 25px;
+		border: 1px solid #000;
+	}
+	input[type="text"], textarea{
+		width: 500px;
+		max-height: 65px;
+	}
+	textarea{
+		transition: height 1s;
+	}
+	input[type="submit"]{
+		width: 120px;
+		background-color: @color-dark-grey;
+		color: @color-white;
+	}
+	input[type="text"]:focus, textarea:focus, input[type="submit"]:hover{
+		border: 1px solid @king-blue;
+	}
+	textarea:focus{
+		height: 50px;
+	}
+}
+#new-article:hover{
+	height: 230px;
+}
