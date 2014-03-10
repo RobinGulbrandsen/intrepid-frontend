@@ -35,11 +35,10 @@ angular.module( 'intrepidApp.register', [
         data:   $scope.formData
         })
         .success(function(data, status, headers, config) {
-          $location.path("/");
-        })
-        .error(function(data, status, headers, config) {
+            $location.path('/');
+        }).error(function(data, status, headers, config) {
           if(status == 400) {
-            $scope.registerError = data.error.message;
+            $scope.registerError = data;
           } else {
             $scope.registerError = "You broke it!";
           }

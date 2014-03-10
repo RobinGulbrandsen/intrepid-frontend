@@ -11,15 +11,15 @@
 
 <div class="post">
 	<div class="post-author">
-		<img class="post-author-img" src="{{serverResponce.author.thumbnail}}"/>
+		<img class="post-author-img" data-ng-src="{{serverResponce.author.thumbnail}}"/>
 		<div class="post-author-info"><p>{{serverResponce.author.username}}</p></div>
 	</div>
 	<div class="post-time">
 		{{ serverResponce.created_at }}
 	</div>
 	<div class="post-control">
-		<img data-ng-show="currentUser.id == serverResponce.user_id" class="edit" src="assets/icon/edit.png" data-ng-click="editTopicShow()" />
-		<img data-ng-show="currentUser.id == serverResponce.user_id || currentUser.guildRank != null && currentUser.guildRank <= 3" class="delete" src="assets/icon/delete.png" data-ng-click="deleteTopic()" />
+		<img data-ng-show="currentUser.id == serverResponce.user_id" class="edit" data-ng-src="assets/icon/edit.png" data-ng-click="editTopicShow()" />
+		<img data-ng-show="currentUser.id == serverResponce.user_id || currentUser.guildRank != null && currentUser.guildRank <= 3" class="delete" data-ng-src="assets/icon/delete.png" data-ng-click="deleteTopic()" />
 	</div>
 	<div class="post-content">
 		<pre>
@@ -46,15 +46,15 @@
 
 <div class="post" data-ng-repeat="post in serverResponce.posts">
 	<div class="post-author">
-		<img class="post-author-img" src="{{post.author.thumbnail}}"/>
+		<img class="post-author-img" data-ng-src="{{post.author.thumbnail}}"/>
 		<div class="post-author-info"><p>{{post.author.username}}</p></div>
 	</div>
 	<div class="post-time">
 		{{ post.created_at }}
 	</div>
 	<div class="post-control">
-		<img data-ng-show="currentUser.id == post.user_id" class="edit" src="assets/icon/edit.png" data-ng-click="editPostShow($index)" />
-		<img data-ng-show="currentUser.id == post.user_id || currentUser.guildRank != null && currentUser.guildRank <= 3" class="delete" src="assets/icon/delete.png" data-ng-click="deletePost(post.id)" />
+		<img data-ng-show="currentUser.id == post.user_id" class="edit" data-ng-src="assets/icon/edit.png" data-ng-click="editPostShow($index)" />
+		<img data-ng-show="currentUser.id == post.user_id || currentUser.guildRank != null && currentUser.guildRank <= 3" class="delete" data-ng-src="assets/icon/delete.png" data-ng-click="deletePost(post.id)" />
 	</div>
 	<div class="post-content">
 		<pre>
