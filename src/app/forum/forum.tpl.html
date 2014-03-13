@@ -1,7 +1,7 @@
 <div id="forum">
 
 <div class="forum-group" >
-  <div class="group-name" data-ng-show="currentUser != null && currentUser.guildRank <= 3">Officers</div>          
+  <div class="group-name" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3">Officers</div>          
 
   <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 0 }">
     <div class="forum-text">
@@ -17,7 +17,7 @@
 </div>
 
 <div class="forum-group" >
-  <div class="group-name" data-ng-show="currentUser != null">Members</div>          
+  <div class="group-name" data-ng-show="currentUser.guildRank != null">Members</div>          
 
   <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 1 }">
     <div class="forum-text">
