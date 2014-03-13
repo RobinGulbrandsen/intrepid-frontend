@@ -22,9 +22,9 @@
 		<img data-ng-show="currentUser.id == serverResponce.user_id || currentUser.guildRank != null && currentUser.guildRank <= 3" class="delete" data-ng-src="assets/icon/delete.png" data-ng-click="deleteTopic()" />
 	</div>
 	<div class="post-content">
-		<pre>
-{{ serverResponce.content }}
-		</pre>
+		<p>
+			{{ serverResponce.content }}
+		<p>
 	</div>
 
 	<div class="post-edit" data-ng-show="editTopicVisible">
@@ -57,9 +57,9 @@
 		<img data-ng-show="currentUser.id == post.user_id || currentUser.guildRank != null && currentUser.guildRank <= 3" class="delete" data-ng-src="assets/icon/delete.png" data-ng-click="deletePost(post.id)" />
 	</div>
 	<div class="post-content">
-		<pre>
-{{ post.content }}
-		</pre>
+		<p>
+			{{ post.content }}
+		<p>
 	</div>
 
 	<div class="post-edit" data-ng-show="editPostVisible[$index]">
