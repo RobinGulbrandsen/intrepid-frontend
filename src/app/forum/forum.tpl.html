@@ -5,7 +5,8 @@
 
   <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 0 }">
     <div class="forum-text">
-      <p class="forum-title"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-title" data-ng-show="category.seen == 0"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-title-seen" data-ng-show="category.seen == 1"><span class="colorize">{{ category.title }}</span></p>
       <p class="forum-descirption">{{ category.description }}</p>
     </div>
     <div class="forum-info">
@@ -21,7 +22,8 @@
 
   <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 1 }">
     <div class="forum-text">
-      <p class="forum-title"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-title" data-ng-show="category.seen == 0"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-title-seen" data-ng-show="category.seen == 1"><span class="colorize">{{ category.title }}</span></p>
       <p class="forum-descirption">{{ category.description }}</p>
     </div>
     <div class="forum-info">
@@ -37,7 +39,8 @@
 
   <div class="forum-topic" data-ng-click="redirectToTopic(category.id)" data-ng-repeat="category in categoryGroups | filter: { group_id: 2 }">
     <div class="forum-text">
-      <p class="forum-title"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-title" data-ng-show="category.seen == 0"><span class="colorize">{{ category.title }}</span></p>
+      <p class="forum-title-seen" data-ng-show="category.seen == 1"><span class="colorize">{{ category.title }}</span></p>
       <p class="forum-descirption">{{ category.description }}</p>
     </div>
     <div class="forum-info">

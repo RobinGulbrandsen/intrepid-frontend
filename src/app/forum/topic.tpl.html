@@ -29,8 +29,10 @@
 	
 	<div class="topic" data-ng-repeat="topic in topics" data-ng-show="!topicNewActive" data-ng-click="redirectToPost(topic.id)">
 		<div class="topic-info">
-			<div class="topic-image-sticky" data-ng-show="topic.sticky == 1"></div>
-			<div class="topic-image" data-ng-show="topic.sticky == 0"></div>
+			<div class="topic-image-sticky" data-ng-show="topic.sticky == 1 && topic.seen == 0"></div>
+			<div class="topic-image-sticky-seen" data-ng-show="topic.sticky == 1 && topic.seen == 1"></div>
+			<div class="topic-image" data-ng-show="topic.sticky == 0 && topic.seen == 0"></div>
+			<div class="topic-image-seen" data-ng-show="topic.sticky == 0 && topic.seen == 1"></div>
 			<p class="topic-name">{{ topic.title }}</p>
 		</div>
 		<div class="topic-stamp">

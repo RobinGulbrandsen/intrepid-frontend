@@ -70,7 +70,9 @@
 		float: left;
 
 		.topic-image,
-		.topic-image-sticky {
+		.topic-image-seen,
+		.topic-image-sticky,
+		.topic-image-sticky-seen {
 			padding-top: 2px;
 			width: 40px;
 			height: 40px;
@@ -80,10 +82,18 @@
 		}
 
 		.topic-image {
+			background-image: url('icon/post-active.png');	
+		}
+
+		.topic-image-seen {
 			background-image: url('icon/post-inactive.png');	
 		}
 
 		.topic-image-sticky {
+			background-image: url('icon/sticky-active.png');			
+		}
+
+		.topic-image-sticky-seen {
 			background-image: url('icon/sticky-inactive.png');			
 		}
 
