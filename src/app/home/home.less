@@ -2,7 +2,7 @@
 
 @min-height: 60px;
 
-.article{
+.article {
 	min-height: @min-height;
 
 	.article-head{
@@ -14,8 +14,8 @@
 			float: left;
 			height: 20px;
 			width: 20px;
-			margin-top: 18px;
-			margin-left: 10px;
+			margin-top: 10px;
+			margin-left: 5px;
 		}
 		h2{
 			float: left;
@@ -39,43 +39,38 @@
 		}
 	}
 }
-#new-article{
-	height: 35px;
-	overflow: hidden;
-	display: inline-block;
-	width: @calculated-width;
-	transition: height 2s;
-	h3{
-		margin: 0;
-		border-bottom: 1px dashed @king-blue;
-		padding: 0;
+
+.show-new-article {
+	height: 20px;
+
+	button {
+		float: right;
+		margin-right: 25px;
+		min-width: 40px;
+
+		border:1px solid #34740e; 
+		-webkit-border-radius: 3px; 
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		padding: 5px 10px 5px 10px; 
+		text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+		font-weight:bold; 
+		color: #FFFFFF;
+		background-color: #4ba614; background-image: -webkit-gradient(linear, left top, left bottom, from(#4ba614), to(#008c00));
+		background-image: -webkit-linear-gradient(top, #4ba614, #008c00);
+		background-image: -moz-linear-gradient(top, #4ba614, #008c00);
+		background-image: -ms-linear-gradient(top, #4ba614, #008c00);
+		background-image: -o-linear-gradient(top, #4ba614, #008c00);
+		background-image: linear-gradient(to bottom, #4ba614, #008c00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#4ba614, endColorstr=#008c00);
 	}
-	input[type="text"],input[type="submit"], textarea{
-		padding: 5px;
-		margin: 5px;
-		outline: none;
-		height: 25px;
-		border: 1px solid #000;
+
+	button:hover {
+		border:1px solid #224b09;
+		background-color: #36780f; background-image: -webkit-gradient(linear, left top, left bottom, from(#36780f), to(#005900));
+		background-image: -webkit-linear-gradient(top, #36780f, #005900);
+		background-image: -moz-linear-gradient(top, #36780f, #005900);
+		background-image: -ms-linear-gradient(top, #36780f, #005900);
+		background-image: -o-linear-gradient(top, #36780f, #005900);
+		background-image: linear-gradient(to bottom, #36780f, #005900);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#36780f, endColorstr=#005900);
 	}
-	input[type="text"], textarea{
-		width: 500px;
-		max-height: 65px;
-	}
-	textarea{
-		transition: height 1s;
-	}
-	input[type="submit"]{
-		width: 120px;
-		background-color: @color-dark-grey;
-		color: @color-white;
-	}
-	input[type="text"]:focus, textarea:focus, input[type="submit"]:hover{
-		border: 1px solid @king-blue;
-	}
-	textarea:focus{
-		height: 50px;
-	}
-}
-#new-article:hover{
-	height: 230px;
 }

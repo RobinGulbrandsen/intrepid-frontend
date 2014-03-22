@@ -13,8 +13,9 @@
 				<span class="error">{{ titleError }}</span>
 				<input type="text" placeholder="Title.." maxlength="40" data-ng-model="formData.title"><br/>
 				<span class="error">{{ contentError }}</span>
-				<textarea placeholder="Content..." rows=10 data-ng-model="formData.content"></textarea><br/>
-				<div class="checkbox-field" data-ng-show="currentUser.guildRank <= 3 && currentUser.guildRank != null">
+				<div class="input-edit-text" text-angular data-ng-model="formData.content" ta-toolbar="[['h1','h2','h3', 'p', 'quote'],['bold','italics', 'underline'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['ul', 'ol'], ['insertImage']]">
+  				</div>
+  				<div class="checkbox-field" data-ng-show="currentUser.guildRank <= 3 && currentUser.guildRank != null">
 					Sticky:<input type="checkbox" data-ng-model="formData.sticky"><br/>
 				</div>
 				<div class="controller">
@@ -22,9 +23,20 @@
 					<button class="cancel" data-ng-click="cancelNew()">Cancel</button>
 					<span class="error-server">{{ serverError }}</span>
 				</div>
-				
 			</fieldset>
 		</form>
+
+		<h2>{{ formData.title }}</h2>
+		<div class="post">
+		<div class="post-author">
+			<img class="post-author-img" data-ng-src="{{currentUser.thumbnail}}"/>
+		    <div class="post-author-info"><p>{{currentUser.username}}</p></div>
+		</div>
+		<div class="post-content">
+			<div ta-bind data-ng-model="formData.content" class="html-output">
+			</div>
+		</div>
+		</div>
 	</div>
 	
 	<div class="topic" data-ng-repeat="topic in topics" data-ng-show="!topicNewActive" data-ng-click="redirectToPost(topic.id)">

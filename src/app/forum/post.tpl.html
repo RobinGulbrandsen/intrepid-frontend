@@ -10,6 +10,23 @@
 </div>
 
 <div class="post">
+	<div class="post-edit" data-ng-show="editTopicVisible">
+		<form>
+		<fieldset>
+			<span class="error">{{ contentError }}</span>
+			<div class="input-edit-text" text-angular data-ng-model="serverResponce.content" ta-toolbar="[['h1','h2','h3', 'p', 'quote'],['bold','italics', 'underline'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['ul', 'ol'], ['insertImage']]">
+  			</div>
+			<br/>
+
+			<div class="controller">
+				<input type="submit" value="Ok" data-ng-click="updateTopic()">
+				<button class="cancel" data-ng-click="editTopicHide()">Cancel</button>
+				<span class="error-server">{{ serverError }}</span>
+			</div>
+		</fieldset>
+		</form>
+	</div>
+	
 	<div class="post-author">
 		<img class="post-author-img" data-ng-src="{{serverResponce.author.thumbnail}}"/>
 		<div class="post-author-info"><p>{{serverResponce.author.username}}</p></div>
@@ -23,29 +40,29 @@
 		<img data-ng-show="currentUser.id == serverResponce.user_id || currentUser.guildRank != null && currentUser.guildRank <= 3" class="delete" data-ng-src="assets/icon/delete.png" data-ng-click="deleteTopic()" />
 	</div>
 	<div class="post-content">
-		<pre>
-{{ serverResponce.content }}
-		</pre>
+		<div ta-bind data-ng-model="serverResponce.content" class="html-output">
+		</div>
 	</div>
+</div>
 
-	<div class="post-edit" data-ng-show="editTopicVisible">
+<div class="post" data-ng-repeat="post in serverResponce.posts">
+	<div class="post-edit" data-ng-show="editPostVisible[$index]">
 		<form>
 		<fieldset>
 			<span class="error">{{ contentError }}</span>
-			<textarea rows="7" cols="110" placeholder="Write in content.." data-ng-model="serverResponce.content"></textarea>
+			<div class="input-edit-text" text-angular data-ng-model="post.content" ta-toolbar="[['h1','h2','h3', 'p', 'quote'],['bold','italics', 'underline'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['ul', 'ol'], ['insertImage']]">
+  			</div>
 			<br/>
 
 			<div class="controller">
-				<input type="submit" value="Ok" data-ng-click="updateTopic()">
-				<button class="cancel" data-ng-click="editTopicHide()">Cancel</button>
+				<input type="submit" value="Ok" data-ng-click="updatePost($index)">
+				<button class="cancel" data-ng-click="editPostHide($index)">Cancel</button>
 				<span class="error-server">{{ serverError }}</span>
 			</div>
 		</fieldset>
 		</form>
 	</div>
-</div>
 
-<div class="post" data-ng-repeat="post in serverResponce.posts">
 	<div class="post-author">
 		<img class="post-author-img" data-ng-src="{{post.author.thumbnail}}"/>
 		<div class="post-author-info"><p>{{post.author.username}}</p></div>
@@ -59,25 +76,8 @@
 		<img data-ng-show="currentUser.id == post.user_id || currentUser.guildRank != null && currentUser.guildRank <= 3" class="delete" data-ng-src="assets/icon/delete.png" data-ng-click="deletePost(post.id)" />
 	</div>
 	<div class="post-content">
-		<pre>
-{{ post.content }}
-		</pre>
-	</div>
-
-	<div class="post-edit" data-ng-show="editPostVisible[$index]">
-		<form>
-		<fieldset>
-			<span class="error">{{ contentError }}</span>
-			<textarea rows="7" cols="110" placeholder="Write in content.." data-ng-model="post.content"></textarea>
-			<br/>
-
-			<div class="controller">
-				<input type="submit" value="Ok" data-ng-click="updatePost($index)">
-				<button class="cancel" data-ng-click="editPostHide($index)">Cancel</button>
-				<span class="error-server">{{ serverError }}</span>
-			</div>
-		</fieldset>
-		</form>
+		<div ta-bind data-ng-model="post.content" class="html-output">
+		</div>
 	</div>
 </div>
 
@@ -95,7 +95,8 @@
 	<form>
 		<fieldset>
 			<span class="error">{{ contentError }}</span>
-			<textarea rows="7" cols="110" placeholder="Write in content.." data-ng-model="formData.content"></textarea>
+			<div class="input-edit-text" text-angular data-ng-model="formData.content" ta-toolbar="[['h1','h2','h3', 'p', 'quote'],['bold','italics', 'underline'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['ul', 'ol'], ['insertImage']]">
+  			</div>
 			<br/>
 
 			<div class="controller">
@@ -105,5 +106,15 @@
 			</div>
 		</fieldset>
 	</form>
+	<div class="post">
+		<div class="post-author">
+			<img class="post-author-img" data-ng-src="{{currentUser.thumbnail}}"/>
+		    <div class="post-author-info"><p>{{currentUser.username}}</p></div>
+		</div>
+		<div class="post-content">
+			<div ta-bind data-ng-model="formData.content" class="html-output">
+			</div>
+		</div>
+	</div>
 </div>
 

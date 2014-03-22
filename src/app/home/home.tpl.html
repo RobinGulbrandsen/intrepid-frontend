@@ -1,39 +1,40 @@
-<div id="new-article" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3">
+<div class="new-article" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3 && editVisible == true">
 
-  <h3>New article ( point here )</h3>
-    <form data-ng-submit="createArticle()">
-      <table>
-      <tr>
-        <td><input type="text" placeholder="Title..." data-ng-model="formData.title"></td>
-      </tr>
-      <tr>
-        <td><textarea placeholder="Content..." data-ng-model="formData.content"></textarea></td>
-      </tr>
-      <tr>
-        <td><input type="submit" value="Create" data-ng-click="createArticle()"></td>
-      </tr>
-      <tr>
-        <td>{{ createArticleError }}</td>
-      </tr>
-      </table>
-    </form>
-  </div>
-  <div class="article-body">
-    <pre>
-{{ article.content }}
-    </pre>
+  <form data-ng-submit="createArticle()">
+    <fieldset>
+      <input type="text" placeholder="Title..." maxlength="40" data-ng-model="formData.title">
+      <div class="input-edit-text" text-angular data-ng-model="formData.content" ta-toolbar="[['h1','h2','h3', 'p', 'quote'],['bold','italics', 'underline'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['ul', 'ol'], ['insertImage']]">
+      </div>
+      <input type="submit" value="Create">
+      <button class="cancel" data-ng-click="hideNewArticle()">Cancel</button>
+      {{ createArticleError }}
+    </fieldset>
+  </form>
+
+  <div class="article">
+    <div class="article-head">
+      <h2>{{ formData.title }}</h2>
+    </div>
+      <div class="article-body">
+        <div ta-bind data-ng-model="formData.content" class="html-output">
+      </div>
+    </div>
   </div>
 </div>
 
- <div class="article" data-ng-repeat="article in articles | orderBy: created_at">
-     <div class="article-head">
-       <h2>{{ article.title }}</h2><span>{{ article.author }} | {{ article.created_at }}</span>
-       <a href="#" data-ng-click="deleteArticle(article.id)" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3">
-         <img src="assets/delete.png">
-       </a>
-     </div>
-     <div class="article-body">
-       <p>{{ article.content }}</p>
-     </div>
-   </div>
+<div class="show-new-article" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3 && !editVisible">
+  <button data-ng-click="showNewArticle()">Create New Article</button>
+</div>
 
+<div class="article" data-ng-repeat="article in articles | orderBy: created_at">
+  <div class="article-head">
+    <h2>{{ article.title }}</h2><span>{{ article.author }} | {{ article.created_at }}</span>
+    <a href="#" data-ng-click="deleteArticle(article.id)" data-ng-show="currentUser.guildRank != null && currentUser.guildRank <= 3">
+      <img src="assets/delete.png">
+    </a>
+    </div>
+    <div class="article-body">
+      <div ta-bind data-ng-model="article.content" class="html-output">
+    </div>
+  </div>
+</div>

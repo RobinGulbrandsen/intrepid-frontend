@@ -19,6 +19,15 @@ angular.module( 'intrepidApp.home', [
   $scope.loginMsg = "";
   $scope.articles = null;
   $scope.currentUser = userFactory.getUser($cookieStore);
+  $scope.editVisible = false;
+
+  $scope.hideNewArticle = function() {
+    $scope.editVisible = false;
+  };
+
+  $scope.showNewArticle = function() {
+    $scope.editVisible = true;
+  };
 
   $scope.createArticle = function() {
     $http({
@@ -26,7 +35,10 @@ angular.module( 'intrepidApp.home', [
       url:    'api/articles',
       data:   $scope.formData
     }).success(function(data, status, headers, config) {
-        $scope.formData = {};
+        $scope.formData = {
+          content: ""
+        };
+        $scope.editVisible = false;
         $scope.getArticles();
     }).error(function(data, status) {
         $scope.errorCreateArticle = data;
@@ -47,13 +59,15 @@ angular.module( 'intrepidApp.home', [
   
   
   $scope.deleteArticle = function($id) {
-    console.log($id);
-    $http({
-      method: 'DELETE', 
-      url:    'api/articles/' + $id
-    }).success(function(data, status, headers, config) {
-        $scope.getArticles();
-    });
+    var answer = confirm("Are you sure you want to delete article");
+    if(answer === true) {
+      $http({
+        method: 'DELETE', 
+        url:    'api/articles/' + $id
+      }).success(function(data, status, headers, config) {
+          $scope.getArticles();
+      });  
+    }
   };
 })
 ;

@@ -259,7 +259,7 @@ p{
 fieldset {
 	margin: 0px;
 	padding: 1em;
-	width: @calculated-width;
+	width: 900px;
 
 	.controller {
 		padding: 10px;
@@ -292,24 +292,6 @@ fieldset {
 		padding: 10px;
 		width: 20px;
 		height: 20px;
-	}
-
-	textarea {
-		border-radius: 3px;
-		width: @calculated-width - 40px;
-		padding: 5px;
-		margin-bottom: 1em;
-		
-		font-family: "Helvetica Neue", Arial, adelle-sans, sans-serif;
-		font-size: 1.025em;
-		line-height: normal;
-
-		border-top: #9A9A9A solid 2px;
-		border-left: #9A9A9A solid 2px;
-		border-bottom: #EEEEEE solid 2px;
-		border-right: #EEEEEE solid 2px;
-
-		resize: none;
 	}
 
 	input[type="submit"] {
@@ -390,4 +372,78 @@ pre {
 	font-family: "Helvetica Neue", Arial, adelle-sans, sans-serif;
 	font-size: 1.025em;
 	line-height: normal;
+}
+
+/*
+*	FORM CSS
+*/
+#taTextElement {
+	background-color: white;
+	height: 200px;
+	border: 1px solid black;
+	overflow-y:scroll;
+	width: 917px;
+}
+
+.btn-toolbar {
+	margin: 0px;
+}
+
+.btn-group {
+	button,
+	button:hover {
+		min-height: 30px;
+		min-width: 30px;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	button:hover {
+		background-color: #AAA;
+	}
+
+	button[name="quote"] { background-image: url('icon/quote.png');	}
+	button[name="bold"] { background-image: url('icon/bold.png'); }
+	button[name="italics"] { background-image: url('icon/italic.png'); }
+	button[name="underline"] { background-image: url('icon/underline.png'); }
+	button[name="ul"] { background-image: url('icon/unorderedList.png'); }
+	button[name="ol"] { background-image: url('icon/orderedList.png'); }
+	button[name="justifyLeft"] { background-image: url('icon/justifyLeft.png'); }
+	button[name="justifyCenter"] { background-image: url('icon/justifyCenter.png'); }
+	button[name="justifyRight"] { background-image: url('icon/justifyRight.png'); }
+	button[name="insertImage"] { background-image: url('icon/image.png'); }
+}
+
+.html-output {
+	h1 {
+		font-size: 1.5em;
+	}
+	h2 {
+		font-size: 1.4em;
+	}
+	h3 {
+		font-size: 1.3em;
+	}
+}
+
+/*
+*	FORM CSS END
+*/
+
+#taTextElement {
+	border-radius: 3px;
+	width: @calculated-width - 40px;
+	padding: 5px;
+	margin-bottom: 1em;
+	
+	font-family: "Helvetica Neue", Arial, adelle-sans, sans-serif;
+	font-size: 1.025em;
+	line-height: normal;
+
+	border-top: #9A9A9A solid 2px;
+	border-left: #9A9A9A solid 2px;
+	border-bottom: #EEEEEE solid 2px;
+	border-right: #EEEEEE solid 2px;
+
+	resize: none;
 }

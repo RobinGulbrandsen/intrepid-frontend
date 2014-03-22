@@ -1,4 +1,5 @@
 angular.module( 'intrepidApp', [
+  'textAngular',
   'ngCookies',
   'templates-app',
   'templates-common',
