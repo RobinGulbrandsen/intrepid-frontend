@@ -40,9 +40,10 @@ angular.module( 'intrepidApp', [
             $scope.currentUser = data;
             $cookieStore.put("currentUser", data);
             $scope.loginMsg = "";    
-            $location.path('/');
+            $scope.formData = {};
+            window.location.href = "/";
           }).error(function(data, status) {
-            $scope.loginMsg = data.error.message;
+            $scope.loginMsg = data;  
           });
         },
         logout: function($scope, $http, $location, $cookieStore) {
@@ -54,7 +55,7 @@ angular.module( 'intrepidApp', [
           }).success(function(data, status, headers, config) {
               $scope.currentUser = null;  
               $cookieStore.put("currentUser", null);
-              $location.path('/');
+              window.location.href = "/";
           }).error(function(data, status) {
               console.log(data);
           });

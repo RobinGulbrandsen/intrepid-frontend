@@ -61,6 +61,7 @@ angular.module( 'intrepidApp.post', [
   };
 
   $scope.disableResponse = function() {
+    $scope.formData = {};
     $scope.writeResponseVisible = false;
   };
 

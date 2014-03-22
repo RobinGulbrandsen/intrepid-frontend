@@ -40,6 +40,7 @@ angular.module( 'intrepidApp.topic', [
   };
 
   $scope.cancelNew = function() {
+    $scope.formData = {};
     $scope.topicNewActive = false;
   };
 

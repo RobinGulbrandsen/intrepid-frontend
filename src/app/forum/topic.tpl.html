@@ -11,7 +11,7 @@
 		<form data-ng-submit="sendForm()">
 			<fieldset>
 				<span class="error">{{ titleError }}</span>
-				<input type="text" placeholder="Title.." data-ng-model="formData.title"><br/>
+				<input type="text" placeholder="Title.." maxlength="40" data-ng-model="formData.title"><br/>
 				<span class="error">{{ contentError }}</span>
 				<textarea placeholder="Content..." rows=10 data-ng-model="formData.content"></textarea><br/>
 				<div class="checkbox-field" data-ng-show="currentUser.guildRank <= 3 && currentUser.guildRank != null">
