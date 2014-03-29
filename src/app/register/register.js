@@ -24,6 +24,10 @@ angular.module( 'intrepidApp.register', [
     if($scope.formData.username && $scope.formData.password && $scope.formData.password2 && 
             $scope.formData.server && $scope.formData.email) {
       resetErrorMsg();
+
+      $scope.formData.username = $scope.formData.username.toLowerCase();
+      $scope.formData.username = $scope.formData.username.charAt(0).toUpperCase() + 
+                                        $scope.formData.username.slice(1);
       
       if($scope.formData.password !== $scope.formData.password2) {
         $scope.errorPassword = "Passwords dont matches";

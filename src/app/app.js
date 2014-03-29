@@ -32,7 +32,11 @@ angular.module( 'intrepidApp', [
           $cookieStore.put("currentUser", data);
         },
         login: function($scope, $http, $location, $cookieStore) {
-          
+          if($scope.formData.username != null) {
+            $scope.formData.username = $scope.formData.username.toLowerCase();
+            $scope.formData.username = $scope.formData.username.charAt(0).toUpperCase() + 
+                                        $scope.formData.username.slice(1);
+          }
           $http({
             method: 'POST', 
             url:    'api/login',
@@ -42,7 +46,6 @@ angular.module( 'intrepidApp', [
             $cookieStore.put("currentUser", data);
             $scope.loginMsg = "";    
             $scope.formData = {};
-            window.location.href = "/";
           }).error(function(data, status) {
             $scope.loginMsg = data;  
           });
